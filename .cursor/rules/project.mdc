@@ -1,0 +1,64 @@
+---
+description: Core project standards for the Car Mechanic Shop Portfolio. Always active.
+alwaysApply: true
+---
+
+# Car Mechanic Shop Portfolio
+
+**Stack:** React · TypeScript · Tailwind CSS · TanStack Router · TanStack Form
+
+A portfolio website for a car mechanic shop. Trustworthy, professional, grounded — not sterile corporate. Industrial-refined aesthetic with dark tones, metallic accents, one bold signature accent color.
+
+## TypeScript — Strict, No Exceptions
+
+- `"strict": true` in tsconfig. Always.
+- **`any` is banned.** No `any`, no `as any`, not "temporarily." Use `unknown` + type guards.
+- Event handlers are fully typed: `React.MouseEvent<HTMLButtonElement>`, `React.ChangeEvent<HTMLInputElement>`, etc.
+- Use `enum` for finite sets (routes, categories, variants, statuses). Use `const` for static values.
+
+## Zero Magic Strings or Numbers
+
+Every repeated string or number must be a constant or enum. Never hardcode string literals or numeric values in components.
+
+```ts
+// constants/routes.ts
+export enum AppRoute { HOME = "/", SERVICES = "/services", ABOUT = "/about", CONTACT = "/contact" }
+
+// constants/ui.ts
+export const ANIMATION_DURATION_MS = 300;
+export const MAX_CONTENT_WIDTH = "max-w-7xl";
+
+// constants/content.ts
+export const COMPANY_NAME = "AutoPro Garage";
+export const PHONE_NUMBER = "+30 210 123 4567";
+```
+
+## Code Quality
+
+- No `console.log` — use a proper logger or remove before commit.
+- No commented-out code committed to the codebase.
+- No `!important` in Tailwind or CSS.
+- No inline styles (`style={{}}`).
+- No prop drilling past 2 levels — use composition or context.
+
+## Environment Variables
+
+- All env vars prefixed with `VITE_`. Access via `import.meta.env.VITE_*`.
+- `.env.example` committed (blank values). `.env.local` gitignored.
+- Typed helper in `lib/env.ts` validates at startup.
+
+## Hard Rules — Quick Reference
+
+| Category | Rule |
+|---|---|
+| TypeScript | `any` banned — no exceptions |
+| Styling | No inline styles, no arbitrary Tailwind values (`p-[17px]`), no margin, no grid unless flex can't do it, no `!important` |
+| Components | Max 600 lines per file, no `<div>` for interactive elements |
+| Code quality | No `console.log`, no magic strings/numbers, no commented-out code |
+| i18n | No hardcoded user-facing strings, every component has translation files |
+| Accessibility | Zero axe critical/serious violations, no removed focus outlines |
+| SEO | Every page has `<title>` and `<meta description>` |
+| Routing | No hardcoded paths — use type-safe `<Link>` |
+| Responsive | No horizontal scroll on any viewport |
+| Dependencies | Check bundlephobia before installing |
+| Git | Conventional commit messages, all commits pass lint + type-check |

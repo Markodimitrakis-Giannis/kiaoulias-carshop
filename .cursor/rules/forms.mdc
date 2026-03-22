@@ -1,0 +1,101 @@
+---
+description: TanStack Form conventions — field validation, accessibility, i18n.
+globs: ["**/Form*/**", "**/form*/**", "**/*Form*"]
+---
+
+# Forms — TanStack Form
+
+Use `@tanstack/react-form` for all forms.
+
+## Types
+
+Define form value types as explicit interfaces in `ComponentName.types.ts`:
+
+```ts
+export interface ContactFormValues {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  service: ServiceCategory;
+}
+```
+
+## Logic Hook
+
+```tsx
+export const useContactForm = () => {
+  const { t } = useTranslation(TranslationNamespace.VALIDATION);
+  const [submitState, setSubmitState] = useState<LoadingState>(LoadingState.IDLE);
+
+  const form = useForm<ContactFormValues>({
+    defaultValues: { name: "", email: "", phone: "", message: "", service: "" as ContactFormValues["service"] },
+    onSubmit: async ({ value }) => {
+      setSubmitState(LoadingState.LOADING);
+      try { /* submit */ setSubmitState(LoadingState.SUCCESS); }
+      catch { setSubmitState(LoadingState.ERROR); }
+    },
+  });
+
+  return { form, submitState, t };
+};
+```
+
+## Field-Level Validation
+
+```tsx
+<form.Field
+  name="email"
+  validators={{
+    onBlur: ({ value }) => {
+      if (!value) return t("validation.emailRequired");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t("validation.emailInvalid");
+      return undefined;
+    },
+  }}
+>
+  {(field) => (
+    <div className="flex flex-col gap-1">
+      <label htmlFor="email">{t("emailLabel")}</label>
+      <input
+        id="email" type="email"
+        value={field.state.value}
+        onChange={(e) => field.handleChange(e.target.value)}
+        onBlur={field.handleBlur}
+        aria-invalid={field.state.meta.errors.length > 0}
+        aria-describedby={field.state.meta.errors.length > 0 ? "email-error" : undefined}
+      />
+      {field.state.meta.errors.length > 0 && (
+        <span id="email-error" role="alert" className="text-sm text-red-400">{field.state.meta.errors[0]}</span>
+      )}
+    </div>
+  )}
+</form.Field>
+```
+
+## Submit Button
+
+```tsx
+<form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
+  {([canSubmit, isSubmitting]) => (
+    <button type="submit" disabled={!canSubmit || isSubmitting}>
+      {isSubmitting ? t("common.submitting") : t("contact.submitButton")}
+    </button>
+  )}
+</form.Subscribe>
+```
+
+## Validation Timing
+
+- **`onBlur`** (default) — validates on focus loss. Best for most fields.
+- **`onChange`** — validates while typing. Use for instant feedback (email, password strength).
+- **`onSubmit`** — validates on submission only. Use for multi-step flows.
+
+## Rules
+
+- All validation messages from translation files (i18n).
+- No native HTML validation (`required`, `minlength` attrs) — TanStack Form handles it.
+- Form types are explicit interfaces in `.types.ts`.
+- Every field has a visible `<label>` via `htmlFor`/`id`.
+- Errors use `role="alert"` and `aria-invalid`.
+- Submission feedback via `aria-live="polite"`.

@@ -1,0 +1,71 @@
+---
+description: React component standards — structure, props, presentation/logic split.
+globs: ["src/components/**/*.tsx", "src/components/**/*.ts"]
+---
+
+# Component Standards
+
+## Folder Structure
+
+Every component is a directory inside `src/components/` (flat, no category nesting):
+
+```
+ComponentName/
+├── index.ts              # Barrel export
+├── ComponentName.tsx      # Presentation (JSX only, no business logic)
+├── ComponentName.types.ts # Props interface, local types, local enums
+├── useComponentName.ts    # Logic hook (state, effects, handlers) — only if needed
+├── ComponentName.styles.css # Scoped CSS — only if Tailwind can't handle it
+└── SubComponent.tsx       # Sub-components stay in parent folder
+```
+
+## Small, Focused, Reusable
+
+- **Max 600 lines per file.** Aim for 50–150 lines.
+- One component per file. File name = component name in PascalCase.
+- If you can describe a component with "and," split it.
+
+## Presentation vs. Logic Split
+
+Components with state, effects, or handlers MUST split into:
+- `ComponentName.tsx` — pure presentation. Same props → same output.
+- `useComponentName.ts` — logic hook returning a typed object.
+
+Skip the hook only for purely presentational components (Badge, Heading, Icon).
+
+## Props — Strict Typing
+
+- **`any` is banned.** Use `unknown` + narrowing if needed.
+- Props interface named `ComponentNameProps` in `ComponentName.types.ts`.
+- Extend native HTML props: `React.ComponentPropsWithoutRef<"button">`.
+- Use discriminated unions for variant-based components.
+- Every primitive accepts `className` for one-off overrides.
+
+```ts
+// Button.types.ts
+export enum ButtonVariant { PRIMARY = "primary", SECONDARY = "secondary", GHOST = "ghost" }
+export enum ButtonSize { SM = "sm", MD = "md", LG = "lg" }
+
+export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  children: React.ReactNode;
+  isLoading?: boolean;
+}
+```
+
+## Barrel Exports
+
+Every component folder has `index.ts`:
+
+```ts
+export { Button } from "./Button";
+export type { ButtonProps } from "./Button.types";
+```
+
+## General Patterns
+
+- Functional components only. Class components allowed ONLY for error boundaries.
+- Named exports for all components. Default exports only if required by TanStack Router.
+- Prefer composition over configuration — pass children, not dozens of config props.
+- All user-facing text via `useTranslation` — zero hardcoded strings.

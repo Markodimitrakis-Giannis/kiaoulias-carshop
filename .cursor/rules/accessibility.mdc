@@ -1,0 +1,72 @@
+---
+description: Accessibility (a11y), semantic HTML, and SEO standards.
+globs: ["**/*.tsx", "src/routes/**/*"]
+---
+
+# Accessibility & SEO
+
+## Semantic HTML
+
+- Use correct elements: `<button>` for actions, `<a>`/`<Link>` for navigation, `<input>` for form fields. Never `<div onClick>`.
+- One `<h1>` per page. Headings sequential: h1 → h2 → h3. Never skip levels.
+- Landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<footer>`.
+- Every `<section>` has a heading (visually hidden with `sr-only` if needed).
+
+## Document Structure
+
+```html
+<a href="#main-content" class="sr-only focus:not-sr-only">Skip to content</a>
+<header><nav aria-label="Main navigation">...</nav></header>
+<main id="main-content">
+  <section aria-labelledby="hero-heading"><h1 id="hero-heading">...</h1></section>
+</main>
+<footer><nav aria-label="Footer navigation">...</nav></footer>
+```
+
+## Keyboard Navigation
+
+- All interactive elements reachable via keyboard.
+- Visible focus states: `focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none`.
+- Modals/menus trap focus while open, restore on close.
+- `Escape` closes overlays. `Enter`/`Space` activates buttons.
+
+## ARIA
+
+- `aria-label` on icon-only buttons and image links.
+- `aria-expanded` on toggle buttons (hamburger, accordions).
+- `aria-current="page"` on active nav links.
+- `aria-live="polite"` for dynamic content (form errors, toasts).
+- Never use ARIA when a native HTML element does the same job.
+
+## Color & Contrast
+
+- WCAG AA: **4.5:1** body text, **3:1** large text.
+- Never convey info through color alone — pair with text, icons, or patterns.
+
+## axe Testing
+
+- `@axe-core/react` in dev mode — logs violations to console.
+- `jest-axe` / `vitest-axe` in component tests.
+- Zero `critical` or `serious` violations per component.
+- Run axe browser extension or Lighthouse a11y audit before release.
+
+## SEO — Meta Tags
+
+Every route defines `head` via TanStack Router:
+- `<title>` — unique per page: `Page Name | Company Name`
+- `<meta name="description">` — 150–160 chars, includes location + service
+- All meta content translated via i18n.
+
+## SEO — Structured Data
+
+Add `AutoRepair` JSON-LD schema with name, address, telephone, openingHours, url.
+
+## Component Completion Checklist
+
+1. Keyboard-only usable?
+2. Visible focus indication?
+3. Semantic HTML (correct elements, heading hierarchy)?
+4. ARIA attributes correct and minimal?
+5. Meets contrast requirements?
+6. Makes sense to a screen reader?
+7. Passes axe with zero critical/serious violations?

@@ -1,0 +1,60 @@
+---
+description: Internationalization standards — react-i18next, translation files, new component checklist.
+globs: ["src/translations/**/*", "src/i18n/**/*", "**/*.tsx"]
+---
+
+# Internationalization — i18n
+
+All user-facing text externalized via react-i18next.
+
+## Structure
+
+- `src/translations/` — all JSON translation files (content). Translators work here.
+- `src/i18n/` — config and types only. No content.
+
+```
+translations/
+├── en/
+│   ├── common.json, hero.json, services.json, about.json, contact.json, validation.json
+├── el/  (mirrors en/ exactly)
+└── index.ts
+```
+
+## Namespaces
+
+```ts
+export enum TranslationNamespace {
+  COMMON = "common", HERO = "hero", SERVICES = "services",
+  ABOUT = "about", CONTACT = "contact", BOOKING_FORM = "bookingForm", VALIDATION = "validation",
+}
+```
+
+## Usage
+
+```tsx
+const { t } = useTranslation(TranslationNamespace.SERVICES);
+return <h2>{t("heading")}</h2>;
+```
+
+## Translation Keys
+
+- Dot-separated, namespaced, descriptive: `services.oilChange.title`
+- NOT location-based: avoid `section2.card1.heading`
+- Include keys for ALL translatable attributes: text, `aria-label`, `placeholder`, `alt`
+
+## New Component — Translation Checklist
+
+1. Create `translations/en/myComponent.json` and `translations/el/myComponent.json`
+2. Add namespace to `TranslationNamespace` enum
+3. Use `useTranslation` from day one
+4. Populate both locales. Use `[TODO: translate]` for untranslated Greek
+
+**No component is complete until translation files exist in all locales.**
+
+## Rules
+
+- Zero hardcoded user-facing strings — headings, labels, buttons, placeholders, errors, alt text, aria-label
+- Locale folders mirror each other exactly with identical keys
+- Date/number/currency formatting via `Intl` APIs or i18next
+- Default: English (en). Additional: Greek (el)
+- Lazy-load namespaces per route/section

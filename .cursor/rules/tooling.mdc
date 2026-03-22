@@ -1,0 +1,107 @@
+---
+description: Performance, bundle size, linting, formatting, and git conventions.
+globs: ["package.json", ".eslintrc*", ".prettierrc*", "vite.config.*", "**/*.ts", "**/*.tsx"]
+---
+
+# Performance & Bundle Size
+
+## General
+
+- Question every `npm install`. One utility needed? Write it yourself.
+- Lazy-load routes (`.lazy.tsx`) and heavy components (modals, galleries, maps).
+- Explicit dimensions on images/embeds to prevent layout shift.
+- CSS animations over JS-driven. Native APIs (`Intl`, `fetch`) over libraries.
+
+## Monitoring
+
+- `vite-plugin-visualizer` — treemap after every build.
+- bundlephobia.com — check BEFORE installing.
+- `size-limit` — hard budget, fails build if exceeded.
+
+## Budgets
+
+- JS: **150 kB** gzipped max
+- CSS: **30 kB** gzipped max
+
+## Pre-Install Checklist
+
+1. Can I do this in 20 lines? → write it yourself
+2. Gzipped size? (bundlephobia) → over 10KB needs justification
+3. Tree-shakeable? → ESM only
+4. Actively maintained?
+
+## Images
+
+- `loading="lazy"` below the fold. `alt` text always.
+- `webp` preferred. `srcset` for responsive sizes.
+- `aspect-*` Tailwind utilities to prevent shift.
+
+---
+
+# Linting & Formatting
+
+## ESLint
+
+```json
+{
+  "@typescript-eslint/no-explicit-any": "error",
+  "@typescript-eslint/no-unused-vars": "error",
+  "no-console": "error",
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "warn",
+  "jsx-a11y/alt-text": "error",
+  "jsx-a11y/no-static-element-interactions": "error",
+  "jsx-a11y/click-events-have-key-events": "error",
+  "import/no-cycle": "error",
+  "import/order": ["error", { "groups": ["builtin","external","internal","parent","sibling"], "newlines-between": "always" }]
+}
+```
+
+Plugins: `@typescript-eslint`, `react-hooks`, `jsx-a11y`, `import`
+
+## Prettier
+
+```json
+{ "semi": true, "singleQuote": false, "trailingComma": "all", "printWidth": 100, "tabWidth": 2 }
+```
+
+## Enforcement
+
+- No warnings in CI — all treated as errors.
+- Format on save in every editor.
+- `husky` + `lint-staged` pre-commit hook.
+- Import order: builtin → external → internal → parent → sibling (blank lines between).
+
+---
+
+# Git Conventions
+
+## Branches
+
+`type/short-kebab-description` — types: `feature`, `fix`, `chore`, `refactor`, `docs`
+
+```
+feature/hero-section
+fix/mobile-nav-overflow
+chore/update-dependencies
+```
+
+## Commits — Conventional Commits
+
+`type(scope): lowercase description`
+
+```
+feat(hero): add parallax background effect
+fix(nav): resolve hamburger not closing on route change
+chore(deps): update react-i18next to v14
+refactor(services): split into ServiceCard sub-component
+```
+
+Types: `feat`, `fix`, `chore`, `refactor`, `docs`, `style`
+
+## Rules
+
+- Every commit passes lint + type-check (enforced by hooks).
+- Atomic commits — one logical change each.
+- No `WIP` or `temp` on main.
+- Squash-merge feature branches.

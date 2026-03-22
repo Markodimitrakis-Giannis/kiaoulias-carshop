@@ -1,0 +1,71 @@
+---
+description: Tailwind CSS, styling, and responsive design standards.
+globs: ["**/*.tsx", "**/*.css", "tailwind.config.*"]
+---
+
+# Styling Rules
+
+## Design Direction
+
+Industrial-refined aesthetic. Dark tones, metallic accents, bold signature accent color. No pastel palettes, no gradients-on-white, nothing that reads as "tech startup."
+
+### Typography
+- Display/Headings: bold condensed or slab-serif (Barlow Condensed, Bebas Neue, Archivo Black). All-caps for section headers.
+- Body: clean sans-serif (Source Sans 3, DM Sans, Outfit).
+- Import via Google Fonts. Never Inter, Arial, or system defaults.
+
+### Colors (extend in tailwind.config.ts)
+- Background: `#1a1a1a` / `#0f0f0f`
+- Surface: `#2a2a2a`
+- Accent: one bold color (burnt orange, safety yellow, oil-slick teal)
+- Text: `#e5e5e5` body, white headings
+- Muted: medium gray
+
+## No Inline CSS — Ever
+
+Zero `style={{}}` in JSX. Use Tailwind classes or component `.styles.css` files.
+
+## Tailwind — Ready Classes Only
+
+- Use the built-in spacing scale (`p-4`, `gap-6`, `max-w-xl`). **Never** arbitrary values like `p-[13px]` or `w-[247px]`.
+- Extend the theme in `tailwind.config.ts` for project tokens. No hex values in class strings.
+- Group classes: layout → sizing → spacing → typography → colors → effects → states.
+- Use `cn()` (clsx + twMerge) for conditional classes. Never string-concatenate.
+
+## Component-Scoped CSS
+
+Only when Tailwind can't express the style (complex keyframes, pseudo-elements). File: `ComponentName.styles.css` in the component folder. This is the exception, not the norm.
+
+## Flexbox First
+
+- Default to `flex` for all layouts. `flex-col` for stacking, `flex-row flex-wrap` for horizontal.
+- Use `gap-*` for spacing between children.
+- **Grid is the last resort.** Only for genuine 2D layouts flex can't handle.
+
+## No Margin
+
+- Avoid `m-*`, `mt-*`, `mb-*`, `mx-*`, `my-*`.
+- Use `gap-*` on the parent flex container.
+- Use `p-*` for internal spacing.
+- If margin is truly unavoidable, add a comment explaining why.
+
+```tsx
+// ✅ Parent owns spacing
+<div className="flex flex-col gap-6">
+  <Heading>Our Services</Heading>
+  <ServiceList />
+</div>
+
+// ❌ Children manage spacing
+<div className="flex flex-col">
+  <Heading className="mb-6">Our Services</Heading>
+  <ServiceList className="mb-8" />
+</div>
+```
+
+## Responsive — Mobile First
+
+- Build mobile layout first, enhance with `md:`, `lg:`, `xl:`.
+- Common: `flex-col md:flex-row`, `w-full md:w-1/2 lg:w-1/3`, `text-2xl md:text-4xl`.
+- Test at **320px minimum**. No horizontal scrolling on any viewport.
+- Touch targets: **44×44px** minimum on mobile.

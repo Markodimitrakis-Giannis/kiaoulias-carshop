@@ -1,0 +1,65 @@
+---
+description: Error handling patterns and animation strategy.
+globs: ["**/*.tsx", "**/*.ts"]
+---
+
+# Error Handling
+
+## Error Boundaries
+
+Wrap major sections and lazy-loaded routes. The ONE exception where class components are allowed.
+
+```tsx
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  state: ErrorBoundaryState = { hasError: false };
+  static getDerivedStateFromError(): ErrorBoundaryState { return { hasError: true }; }
+  componentDidCatch(error: Error, info: ErrorInfo) { /* log to monitoring — never console.log */ }
+  render() {
+    if (this.state.hasError) return this.props.fallback ?? <ErrorFallback />;
+    return this.props.children;
+  }
+}
+```
+
+## Fallback Patterns
+
+- Lazy chunks: `<ErrorBoundary>` wrapping `<Suspense fallback={<Loading />}>`
+- Images: `onError` swaps to placeholder. Never broken image icons.
+- API/submissions: inline errors at point of failure, `LoadingState` enum (IDLE → LOADING → SUCCESS | ERROR)
+- Network errors: show retry option
+
+## Rules
+
+- Never let an unhandled error crash the full page.
+- Never show raw errors or stack traces to users.
+- Every async operation handles its error case.
+- Error fallback UIs styled consistently, translated via i18n.
+
+---
+
+# Animation
+
+## CSS First
+
+Default to Tailwind `transition-*`, `duration-*`, `ease-*` for hover/focus/color. Use `@keyframes` in `.styles.css` for repeatable animations.
+
+## Framer Motion — Complex Cases Only
+
+Page transitions, staggered lists, scroll-triggered reveals, drag, layout animations.
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: ANIMATION_DURATION_MS / 1000 }}
+/>
+```
+
+## Rules
+
+- No animation delays content visibility. Entrance animations are subtle (opacity, small translate).
+- `viewport: { once: true }` — play once, not on every re-entry.
+- **Respect `prefers-reduced-motion`.** Use `motion-safe:`/`motion-reduce:` or `useReducedMotion` hook.
+- Durations from `constants/ui.ts`. Max **400ms**.
+- Must run at 60fps on mid-range mobile.

@@ -1,0 +1,94 @@
+---
+description: TanStack Router conventions — file-based routing, type-safe navigation, lazy routes.
+globs: ["src/routes/**/*"]
+---
+
+# Routing — TanStack Router
+
+## File-Based Routes
+
+Use `@tanstack/router-vite-plugin`. Routes live in `src/routes/`. The plugin generates `routeTree.gen.ts` — never edit manually.
+
+```
+src/routes/
+├── __root.tsx          # Root layout (header, footer, outlet)
+├── index.tsx           # Home → /
+├── services.tsx        # → /services
+├── services.lazy.tsx   # Lazy component
+├── about.tsx           # → /about
+├── contact.tsx         # → /contact
+└── contact.lazy.tsx
+```
+
+## Root Route
+
+```tsx
+import { createRootRoute, Outlet, ScrollRestoration } from "@tanstack/react-router";
+
+export const Route = createRootRoute({
+  component: () => (
+    <>
+      <ScrollRestoration />
+      <Header />
+      <main id="main-content"><Outlet /></main>
+      <Footer />
+    </>
+  ),
+  notFoundComponent: () => <NotFoundPage />,
+});
+```
+
+## Page Routes with Head
+
+```tsx
+export const Route = createFileRoute("/services")({
+  component: ServicesPage,
+  head: () => ({
+    meta: [
+      { title: "Our Services | AutoPro Garage" },
+      { name: "description", content: "Professional auto repair in Athens..." },
+    ],
+  }),
+});
+```
+
+## Lazy Routes
+
+Split page components from the initial bundle:
+
+```tsx
+// routes/services.tsx
+export const Route = createFileRoute("/services")({});
+
+// routes/services.lazy.tsx
+export const Route = createLazyFileRoute("/services")({ component: ServicesPage });
+```
+
+## Type-Safe Navigation
+
+```tsx
+<Link to="/services">Our Services</Link>  // compile-time checked
+<Link to="/services" search={{ category: "maintenance" }}>Maintenance</Link>
+```
+
+## Type-Safe Search Params
+
+```tsx
+interface ServicesSearchParams { category?: ServiceCategory; }
+
+export const Route = createFileRoute("/services")({
+  validateSearch: (search: Record<string, unknown>): ServicesSearchParams => ({
+    category: Object.values(ServiceCategory).includes(search.category as ServiceCategory)
+      ? (search.category as ServiceCategory) : undefined,
+  }),
+});
+```
+
+## Rules
+
+- All routes in `src/routes/`. File-based only.
+- `<Link>` from TanStack Router for internal navigation. Never `<a>` or `window.location`.
+- Active links: `activeProps`/`activeOptions` with `aria-current="page"`.
+- Every route has `errorComponent` or inherits from root.
+- Every route defines `head` with title + description (translated via i18n).
+- `ScrollRestoration` in root route.
