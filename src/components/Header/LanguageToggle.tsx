@@ -21,7 +21,7 @@ export const LanguageToggle = ({
 
   return (
     <div
-      className="flex overflow-hidden rounded-md border border-border text-sm"
+      className="site-language-toggle flex overflow-hidden rounded-md border border-border text-sm"
       role="group"
       aria-label={t("lang.toggle")}
     >
@@ -34,7 +34,7 @@ export const LanguageToggle = ({
             onClick={() => onChangeLanguage(lang)}
             aria-pressed={isActive}
             className={cn(
-              "px-3 py-1 font-mono uppercase transition-colors duration-200",
+              "px-2.5 py-1 font-mono uppercase transition-colors duration-200 sm:px-3",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent",
               isActive
                 ? "bg-accent text-on-accent"

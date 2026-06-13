@@ -41,9 +41,9 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 px-3 pt-3 md:px-4 md:pt-4">
+    <header className="site-header sticky top-0 z-40 px-3 pt-3 md:px-4 md:pt-4">
       <div className="mx-auto flex max-w-7xl flex-col gap-2">
-        <div className="flex items-center gap-3 rounded-2xl border border-border bg-charcoal/70 px-3 py-2.5 shadow-lg backdrop-blur-md sm:gap-4 sm:px-5 md:gap-8 md:px-8 md:py-4">
+        <div className="site-header-bar flex items-center gap-3 rounded-2xl border border-border bg-charcoal/70 px-3 py-2.5 shadow-lg backdrop-blur-md sm:gap-4 sm:px-5 md:gap-8 md:px-8 md:py-4">
         {/* Logo — theme-aware (orange+white on dark, orange+black on light) */}
         <Link
           to={AppRoute.HOME}
@@ -54,8 +54,8 @@ export const Header = () => {
           )}
           aria-label={t("nav.homeLabel", { company: COMPANY_NAME })}
         >
-          <img src={assetPath("/photos/logo-dark-800.webp")} alt="" className="logo-on-dark h-8 w-auto sm:h-10 md:h-12" />
-          <img src={assetPath("/photos/logo-800.webp")} alt="" className="logo-on-light h-8 w-auto sm:h-10 md:h-12" />
+          <img src={assetPath("/photos/logo-dark-800.webp")} alt="" className="site-logo-img logo-on-dark h-8 w-auto sm:h-10 md:h-12" />
+          <img src={assetPath("/photos/logo-800.webp")} alt="" className="site-logo-img logo-on-light h-8 w-auto sm:h-10 md:h-12" />
         </Link>
 
         {/* Desktop navigation */}
@@ -83,7 +83,7 @@ export const Header = () => {
         </nav>
 
         {/* Right side controls */}
-        <div className={cn("flex items-center gap-2 sm:gap-3", "ml-auto md:ml-0")}>
+        <div className={cn("site-header-actions flex items-center gap-2 sm:gap-3", "ml-auto md:ml-0")}>
           <ThemeToggle theme={theme} onToggle={toggleTheme} />
 
           <LanguageToggle
@@ -91,19 +91,19 @@ export const Header = () => {
             onChangeLanguage={handleLanguageChange}
           />
 
-          {/* Phone link — shown only at lg+ to keep the bar uncluttered on tablets */}
+          {/* Phone link — icon-only to keep the navbar compact. */}
           <a
             href={`tel:${PHONE_TEL}`}
-            aria-label={t("phone.label")}
+            aria-label={`${t("phone.label")} ${PHONE_NUMBER}`}
+            title={PHONE_NUMBER}
             className={cn(
-              "hidden items-center gap-1 font-mono text-sm text-body",
+              "site-phone-link hidden h-10 w-10 items-center justify-center rounded-md border border-border-strong text-body",
               "transition-colors duration-200 hover:text-accent-text",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm",
+              "hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
               "lg:flex",
             )}
           >
-            <Phone size={14} aria-hidden="true" />
-            {PHONE_NUMBER}
+            <Phone size={18} aria-hidden="true" />
           </a>
 
           {/* CTA — hidden below md */}

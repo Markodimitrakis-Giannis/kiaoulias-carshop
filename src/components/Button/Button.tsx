@@ -34,7 +34,7 @@ export const Button = ({
     <button
       disabled={isDisabled}
       className={cn(
-        "inline-flex cursor-pointer items-center justify-center gap-2 rounded-md font-display uppercase tracking-wider transition-colors duration-200",
+        "inline-flex max-w-full min-w-0 cursor-pointer items-center justify-center gap-2 rounded-md text-center font-display uppercase leading-snug tracking-wider transition-colors duration-200 whitespace-normal",
         variantClasses[variant],
         sizeClasses[size],
         isDisabled && "cursor-not-allowed opacity-50",

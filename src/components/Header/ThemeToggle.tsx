@@ -18,7 +18,7 @@ export const ThemeToggle = ({ theme, onToggle }: ThemeToggleProps) => {
       onClick={onToggle}
       aria-label={ariaLabel}
       className={cn(
-        "grid h-9 w-9 place-items-center rounded-md border border-border",
+        "site-icon-button grid h-9 w-9 place-items-center rounded-md border border-border",
         "text-body transition-colors duration-200",
         "hover:border-accent hover:text-accent",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",

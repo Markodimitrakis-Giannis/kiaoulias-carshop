@@ -74,7 +74,7 @@ export const Hero = ({ className }: HeroProps) => {
 
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex min-h-13 items-center gap-2 rounded-md border border-border-strong px-8 py-4 font-display text-lg uppercase tracking-wider text-heading transition-colors duration-200 hover:border-accent hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="inline-flex max-w-full min-h-13 min-w-0 items-center justify-center gap-2 rounded-md border border-border-strong px-6 py-4 text-center font-display text-lg uppercase leading-snug tracking-wider text-heading transition-colors duration-200 hover:border-accent hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:px-8"
             >
               <Phone size={18} aria-hidden="true" />
               {t("cta2")}
