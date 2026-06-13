@@ -9,5 +9,7 @@ export interface SectionWrapperProps {
   labelledBy?: string;
   variant?: SectionBackground;
   className?: string;
+  /** Opt out of the scroll-reveal entrance (e.g. always-visible above-fold content). */
+  disableReveal?: boolean;
   children: React.ReactNode;
 }

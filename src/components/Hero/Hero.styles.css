@@ -19,13 +19,27 @@
   );
 }
 
-/* Light mode: flip the overlay so dark text stays legible */
+/* The hero is a dark zone in BOTH themes: a white wash over a photo reads as a
+   hazy/blurry veil, so instead we darken the photo and keep the copy light.
+   Darkening preserves photo crispness and gives white text strong AA contrast
+   regardless of theme. The light overlay is therefore identical to the dark one. */
 html.light .hero-gradient {
   background: linear-gradient(
     to bottom right,
-    rgba(245, 245, 243, 0.88) 40%,
-    rgba(245, 245, 243, 0.62) 100%
+    rgba(15, 15, 15, 0.85) 40%,
+    rgba(15, 15, 15, 0.5) 100%
   );
+}
+
+/* Copy column re-declares the theme tokens to their dark-mode values so the
+   eyebrow/heading/sub/secondary-CTA stay light over the darkened photo in light
+   mode. Scoped to .hero-copy so the (light) finder card is unaffected. */
+html.light .hero-copy {
+  --color-heading: #ffffff;
+  --color-body: #e5e5e5;
+  --color-muted: #a1a1a1;
+  --color-border-strong: #4a4a4a;
+  --color-accent-text: #f26419;
 }
 
 /* ==========================================================================

@@ -1,4 +1,4 @@
-import { Clock, MapPin, Phone } from "lucide-react";
+import { CheckCircle2, Clock, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@tanstack/react-router";
 
@@ -8,6 +8,7 @@ import { FormField, FormFieldTone } from "@/components/FormField";
 import { Heading } from "@/components/Heading";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.types";
+import { Select, SelectTone } from "@/components/Select";
 import { AppRoute } from "@/constants/routes";
 import { PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
@@ -15,6 +16,7 @@ import { LoadingState } from "@/types/common";
 
 import type { BookingFormProps, BookingFormValues } from "./BookingForm.types";
 import { useBookingForm } from "./useBookingForm";
+import "./BookingForm.styles.css";
 
 export const BookingForm = ({ className }: BookingFormProps) => {
   const { t } = useTranslation(TranslationNamespace.BOOKING_FORM);
@@ -78,8 +80,13 @@ export const BookingForm = ({ className }: BookingFormProps) => {
             <div
               role="status"
               aria-live="polite"
-              className="flex flex-col gap-4 rounded-md border border-success/30 bg-success/10 p-6"
+              className="booking-success flex flex-col gap-4 rounded-md border border-success/30 bg-success/10 p-6"
             >
+              <CheckCircle2
+                size={40}
+                aria-hidden="true"
+                className="booking-success-icon text-success"
+              />
               <p className="font-display text-lg uppercase tracking-wide text-success">
                 {t("form.success")}
               </p>
@@ -210,7 +217,30 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                 )}
               </form.Field>
 
-              {/* Service select */}
+              {/* Tyre size (optional) — prefilled from the hero finder when used */}
+              <form.Field name="tyreSize">
+                {(field) => (
+                  <FormField
+                    label={t("form.tyreSize")}
+                    htmlFor="booking-tyre-size"
+                    tone={FormFieldTone.INVERSE}
+                  >
+                    <input
+                      id="booking-tyre-size"
+                      type="text"
+                      inputMode="text"
+                      autoComplete="off"
+                      placeholder="205/55 R16"
+                      value={field.state.value}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      onBlur={field.handleBlur}
+                      className="rounded-sm border border-border bg-surface-raised px-4 py-3 font-mono text-base text-body placeholder:text-faint focus-visible:border-accent focus-visible:outline-none"
+                    />
+                  </FormField>
+                )}
+              </form.Field>
+
+              {/* Service select — custom accessible listbox */}
               <form.Field name="service">
                 {(field) => (
                   <FormField
@@ -218,22 +248,20 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                     htmlFor="booking-service"
                     tone={FormFieldTone.INVERSE}
                   >
-                    <select
+                    <Select
                       id="booking-service"
+                      tone={SelectTone.INVERSE}
+                      placeholder={t("form.servicePlaceholder")}
                       value={field.state.value}
-                      onChange={(e) =>
-                        field.handleChange(e.target.value as BookingFormValues["service"])
+                      onChange={(value) =>
+                        field.handleChange(value as BookingFormValues["service"])
                       }
                       onBlur={field.handleBlur}
-                      className="rounded-sm border border-border bg-surface-raised px-4 py-3 text-base text-body focus-visible:border-accent focus-visible:outline-none"
-                    >
-                      <option value="" />
-                      {SERVICE_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {t(opt.labelKey)}
-                        </option>
-                      ))}
-                    </select>
+                      options={SERVICE_OPTIONS.map((opt) => ({
+                        value: opt.value,
+                        label: t(opt.labelKey),
+                      }))}
+                    />
                   </FormField>
                 )}
               </form.Field>

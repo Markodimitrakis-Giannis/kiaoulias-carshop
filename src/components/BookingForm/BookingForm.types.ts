@@ -5,6 +5,7 @@ export interface BookingFormValues {
   phone: string;
   email: string;
   vehicle: string;
+  tyreSize: string;
   service: ServiceCategory | "";
   consent: boolean;
 }

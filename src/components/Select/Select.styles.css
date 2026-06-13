@@ -1,0 +1,24 @@
+/* Custom listbox panel — opens directly under the trigger with a small gap.
+   Positioned in CSS (not a margin utility) and animated on open. */
+.select-panel {
+  top: calc(100% + 4px);
+  transform-origin: top center;
+  animation: select-open var(--duration-base) var(--ease-out) both;
+}
+
+@keyframes select-open {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scaleY(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-panel {
+    animation: none;
+  }
+}
