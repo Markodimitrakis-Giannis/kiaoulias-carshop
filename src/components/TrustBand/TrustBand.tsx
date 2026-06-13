@@ -68,7 +68,7 @@ const StatCount = ({ stat, isVisible }: StatCountProps) => {
       : String(raw);
 
   return (
-    <span className="font-mono text-4xl font-bold text-white" aria-live="off">
+    <span className="font-mono text-2xl font-bold text-white md:text-3xl" aria-live="off">
       {stat.prefix}
       {formatted}
       {stat.suffix}

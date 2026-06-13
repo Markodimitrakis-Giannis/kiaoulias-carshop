@@ -1,5 +1,5 @@
 {
- "eyebrow": "// Book in",
+ "eyebrow": "Book in",
  "h": "Book your slot",
  "sub": "Send the basics and we'll confirm by phone within the hour during opening times.",
  "addr": "Efodou 10, Heraklion 713 03",
@@ -9,7 +9,9 @@
  "phone": "Phone",
  "email": "Email",
  "car": "Vehicle (optional)",
+ "tyreSize": "Tyre size (optional)",
  "service": "Service",
+ "servicePlaceholder": "Choose a service",
  "hint": "Phone or email, at least one, so we can reach you.",
  "opt1": "Tyres",
  "opt2": "Alignment",

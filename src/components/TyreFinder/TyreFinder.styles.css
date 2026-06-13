@@ -1,0 +1,25 @@
+/* Tyre-size finder — dark "spec console" panel. The hero's signature element,
+   so it carries one deliberate flourish: an accent hairline + soft glow.
+   Kept static (no looping animation) to stay professional, not gimmicky. */
+.tyre-finder {
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(242, 100, 25, 0.1), transparent 55%),
+    var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Accent hairline along the top edge */
+.tyre-finder::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.8;
+}
+
+html.light .tyre-finder {
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(242, 100, 25, 0.08), transparent 55%),
+    var(--color-surface);
+}

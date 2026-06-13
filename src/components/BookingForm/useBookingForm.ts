@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "@tanstack/react-form";
 import { useTranslation } from "react-i18next";
 
 import { ServiceCategory } from "@/constants/services";
+import { TYRE_SIZE_EVENT, TYRE_SIZE_STORAGE_KEY } from "@/constants/ui";
 import { TranslationNamespace } from "@/i18n/types";
 import { LoadingState } from "@/types/common";
 
@@ -10,9 +11,19 @@ import type { BookingFormValues } from "./BookingForm.types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const readStoredSize = (): string => {
+  try {
+    return sessionStorage.getItem(TYRE_SIZE_STORAGE_KEY) ?? "";
+  } catch {
+    return "";
+  }
+};
+
 export const useBookingForm = () => {
   const { t: tValidation } = useTranslation(TranslationNamespace.VALIDATION);
   const [submitState, setSubmitState] = useState<LoadingState>(LoadingState.IDLE);
+
+  const initialSize = readStoredSize();
 
   const form = useForm({
     defaultValues: {
@@ -20,7 +31,10 @@ export const useBookingForm = () => {
       phone: "",
       email: "",
       vehicle: "",
-      service: "" as BookingFormValues["service"],
+      tyreSize: initialSize,
+      service: (initialSize
+        ? ServiceCategory.TYRES
+        : "") as BookingFormValues["service"],
       consent: false,
     },
     onSubmit: async ({ value }) => {
@@ -41,6 +55,19 @@ export const useBookingForm = () => {
       setSubmitState(LoadingState.SUCCESS);
     },
   });
+
+  // The hero tyre finder lives on the same page, so the booking form is already
+  // mounted when a size is chosen — update live via the window event.
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const size = (event as CustomEvent<string>).detail;
+      if (!size) return;
+      form.setFieldValue("tyreSize", size);
+      form.setFieldValue("service", ServiceCategory.TYRES);
+    };
+    window.addEventListener(TYRE_SIZE_EVENT, handler);
+    return () => window.removeEventListener(TYRE_SIZE_EVENT, handler);
+  }, [form]);
 
   const validateName = ({ value }: { value: string }) => {
     if (!value.trim()) return tValidation("err.name");
