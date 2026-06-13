@@ -6,6 +6,7 @@ import { Heading } from "@/components/Heading";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.types";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath, assetSrcSet } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 import { useScrollSlider } from "@/hooks/useScrollSlider";
 
@@ -13,14 +14,14 @@ import type { GalleryImage, GalleryProps } from "./Gallery.types";
 import "./Gallery.styles.css";
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  { altKey: "hero", src: "/photos/hero-1280.webp", srcSet: "/photos/hero-640.webp 640w, /photos/hero-1280.webp 1280w" },
-  { altKey: "tyreFitting", src: "/photos/tyre-fitting-960.webp", srcSet: "/photos/tyre-fitting-480.webp 480w, /photos/tyre-fitting-960.webp 960w" },
-  { altKey: "balancing", src: "/photos/balancing-960.webp", srcSet: "/photos/balancing-480.webp 480w, /photos/balancing-960.webp 960w" },
-  { altKey: "alignment", src: "/photos/alignment-1280.webp", srcSet: "/photos/alignment-640.webp 640w, /photos/alignment-1280.webp 1280w" },
-  { altKey: "alignPortrait", src: "/photos/align-portrait-960.webp", srcSet: "/photos/align-portrait-480.webp 480w, /photos/align-portrait-960.webp 960w" },
-  { altKey: "alignLow", src: "/photos/align-low-1280.webp", srcSet: "/photos/align-low-640.webp 640w, /photos/align-low-1280.webp 1280w" },
-  { altKey: "torque", src: "/photos/torque-1280.webp", srcSet: "/photos/torque-640.webp 640w, /photos/torque-1280.webp 1280w" },
-  { altKey: "workshop", src: "/photos/workshop-1280.webp", srcSet: "/photos/workshop-640.webp 640w, /photos/workshop-1280.webp 1280w, /photos/workshop-1600.webp 1600w" },
+  { altKey: "hero", src: assetPath("/photos/hero-1280.webp"), srcSet: assetSrcSet([["/photos/hero-640.webp", "640w"], ["/photos/hero-1280.webp", "1280w"]]) },
+  { altKey: "tyreFitting", src: assetPath("/photos/tyre-fitting-960.webp"), srcSet: assetSrcSet([["/photos/tyre-fitting-480.webp", "480w"], ["/photos/tyre-fitting-960.webp", "960w"]]) },
+  { altKey: "balancing", src: assetPath("/photos/balancing-960.webp"), srcSet: assetSrcSet([["/photos/balancing-480.webp", "480w"], ["/photos/balancing-960.webp", "960w"]]) },
+  { altKey: "alignment", src: assetPath("/photos/alignment-1280.webp"), srcSet: assetSrcSet([["/photos/alignment-640.webp", "640w"], ["/photos/alignment-1280.webp", "1280w"]]) },
+  { altKey: "alignPortrait", src: assetPath("/photos/align-portrait-960.webp"), srcSet: assetSrcSet([["/photos/align-portrait-480.webp", "480w"], ["/photos/align-portrait-960.webp", "960w"]]) },
+  { altKey: "alignLow", src: assetPath("/photos/align-low-1280.webp"), srcSet: assetSrcSet([["/photos/align-low-640.webp", "640w"], ["/photos/align-low-1280.webp", "1280w"]]) },
+  { altKey: "torque", src: assetPath("/photos/torque-1280.webp"), srcSet: assetSrcSet([["/photos/torque-640.webp", "640w"], ["/photos/torque-1280.webp", "1280w"]]) },
+  { altKey: "workshop", src: assetPath("/photos/workshop-1280.webp"), srcSet: assetSrcSet([["/photos/workshop-640.webp", "640w"], ["/photos/workshop-1280.webp", "1280w"], ["/photos/workshop-1600.webp", "1600w"]]) },
 ];
 
 export const Gallery = ({ className }: GalleryProps) => {

@@ -47,6 +47,10 @@ export const ensureLanguageLoaded = async (language: string): Promise<void> => {
 
 // If the detected/persisted language is Greek, load it so the UI doesn't fall
 // back to English on first load.
-void ensureLanguageLoaded(i18n.language ?? "en");
+void ensureLanguageLoaded(i18n.language ?? "en").then(() => {
+  if ((i18n.language ?? "en").split("-")[0] === "el") {
+    void i18n.changeLanguage("el");
+  }
+});
 
 export default i18n;

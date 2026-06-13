@@ -9,6 +9,7 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.types";
 import { ADDRESS, PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath, assetSrcSet } from "@/lib/asset";
 
 
 function ContactPage() {
@@ -69,8 +70,12 @@ function ContactPage() {
           <div className="overflow-hidden rounded-lg lg:w-3/5">
             <figure className="flex flex-col gap-2">
               <img
-                src="/photos/workshop-1280.webp"
-                srcSet="/photos/workshop-640.webp 640w, /photos/workshop-1280.webp 1280w, /photos/workshop-1600.webp 1600w"
+                src={assetPath("/photos/workshop-1280.webp")}
+                srcSet={assetSrcSet([
+                  ["/photos/workshop-640.webp", "640w"],
+                  ["/photos/workshop-1280.webp", "1280w"],
+                  ["/photos/workshop-1600.webp", "1600w"],
+                ])}
                 sizes="(min-width:1024px) 60vw, 100vw"
                 loading="lazy"
                 alt={tGallery("contact.workshop")}

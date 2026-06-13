@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import i18n from "@/i18n";
+import { absoluteAssetUrl, siteUrl } from "@/lib/asset";
 
 export const Route = createFileRoute("/about")({
 
@@ -23,10 +24,10 @@ export const Route = createFileRoute("/about")({
             "Family-run tyre and alignment shop in central Heraklion since 2005. Honest pricing, precision alignment, same-day fitting.",
         },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://www.kiaoulias.gr/about" },
-        { property: "og:image", content: "/og-image.jpg" },
+        { property: "og:url", content: siteUrl("/about") },
+        { property: "og:image", content: absoluteAssetUrl("/photos/workshop-1280.webp") },
       ],
-      links: [{ rel: "canonical", href: "https://www.kiaoulias.gr/about" }],
+      links: [{ rel: "canonical", href: siteUrl("/about") }],
     };
   },
 });

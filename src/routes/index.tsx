@@ -12,6 +12,7 @@ import { TrustBand } from "@/components/TrustBand";
 import { TrustCards } from "@/components/TrustCards";
 import { WhyUs } from "@/components/WhyUs";
 import { COMPANY_NAME, FOUNDING_YEAR, GOOGLE_RATING, PHONE_NUMBER, ADDRESS } from "@/constants/content";
+import { absoluteAssetUrl, siteUrl } from "@/lib/asset";
 
 const HOME_TITLE = `${COMPANY_NAME} — Tyres & Alignment Heraklion`;
 const HOME_DESCRIPTION =
@@ -113,9 +114,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: HOME_TITLE },
       { property: "og:description", content: HOME_DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://www.kiaoulias.gr" },
-      { property: "og:image", content: "/og-image.jpg" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.kiaoulias.gr" }],
+        { property: "og:url", content: siteUrl() },
+        { property: "og:image", content: absoluteAssetUrl("/photos/hero-1280.webp") },
+      ],
+    links: [{ rel: "canonical", href: siteUrl() }],
   }),
 });

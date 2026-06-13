@@ -7,6 +7,7 @@ import { AppRoute } from "@/constants/routes";
 import { COMPANY_NAME, PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
 import { ensureLanguageLoaded } from "@/i18n";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 import { useTheme } from "@/hooks/useTheme";
 
@@ -52,8 +53,8 @@ export const Header = () => {
           )}
           aria-label={t("nav.homeLabel", { company: COMPANY_NAME })}
         >
-          <img src="/photos/logo-dark-800.webp" alt="" className="logo-on-dark h-8 w-auto sm:h-10 md:h-12" />
-          <img src="/photos/logo-800.webp" alt="" className="logo-on-light h-8 w-auto sm:h-10 md:h-12" />
+          <img src={assetPath("/photos/logo-dark-800.webp")} alt="" className="logo-on-dark h-8 w-auto sm:h-10 md:h-12" />
+          <img src={assetPath("/photos/logo-800.webp")} alt="" className="logo-on-light h-8 w-auto sm:h-10 md:h-12" />
         </Link>
 
         {/* Desktop navigation */}

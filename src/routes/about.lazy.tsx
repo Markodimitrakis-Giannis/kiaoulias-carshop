@@ -9,6 +9,7 @@ import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.ty
 import { AppRoute } from "@/constants/routes";
 import { FOUNDING_YEAR } from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath, assetSrcSet } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 function AboutPage() {
@@ -60,8 +61,12 @@ function AboutPage() {
           {/* Workshop establishing shot */}
           <div className="overflow-hidden rounded-lg lg:w-2/5">
             <img
-              src="/photos/workshop-1280.webp"
-              srcSet="/photos/workshop-640.webp 640w, /photos/workshop-1280.webp 1280w, /photos/workshop-1600.webp 1600w"
+              src={assetPath("/photos/workshop-1280.webp")}
+              srcSet={assetSrcSet([
+                ["/photos/workshop-640.webp", "640w"],
+                ["/photos/workshop-1280.webp", "1280w"],
+                ["/photos/workshop-1600.webp", "1600w"],
+              ])}
               sizes="(min-width:1024px) 40vw, 100vw"
               loading="lazy"
               alt={tGallery("about.workshop")}
@@ -101,8 +106,11 @@ function AboutPage() {
           {/* Balancing machine photo — KIAOULIAS screen visible */}
           <div className="overflow-hidden rounded-lg lg:w-2/5">
             <img
-              src="/photos/balancing-960.webp"
-              srcSet="/photos/balancing-480.webp 480w, /photos/balancing-960.webp 960w"
+              src={assetPath("/photos/balancing-960.webp")}
+              srcSet={assetSrcSet([
+                ["/photos/balancing-480.webp", "480w"],
+                ["/photos/balancing-960.webp", "960w"],
+              ])}
               sizes="(min-width:1024px) 40vw, 100vw"
               loading="lazy"
               alt={tGallery("about.balancing")}

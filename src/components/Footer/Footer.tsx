@@ -5,6 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { AppRoute } from "@/constants/routes";
 import { ADDRESS, COMPANY_NAME, FOUNDING_YEAR, PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 import type { FooterProps } from "./Footer.types";
@@ -59,8 +60,8 @@ export const Footer = ({ className }: FooterProps) => {
             )}
             aria-label={t("nav.homeLabel", { company: COMPANY_NAME })}
           >
-            <img src="/photos/logo-dark-800.webp" alt="" className="logo-on-dark h-14 w-auto" />
-            <img src="/photos/logo-800.webp" alt="" className="logo-on-light h-14 w-auto" />
+            <img src={assetPath("/photos/logo-dark-800.webp")} alt="" className="logo-on-dark h-14 w-auto" />
+            <img src={assetPath("/photos/logo-800.webp")} alt="" className="logo-on-light h-14 w-auto" />
           </Link>
           <p className="max-w-xs text-sm text-muted">{t("foot.tag")}</p>
           <p className="text-xs text-muted">

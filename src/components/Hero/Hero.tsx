@@ -8,6 +8,7 @@ import { Heading } from "@/components/Heading";
 import { SpecChip } from "@/components/SpecChip";
 import { TranslationNamespace } from "@/i18n/types";
 import { PHONE_TEL } from "@/constants/content";
+import { assetPath, assetSrcSet } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 import type { HeroProps } from "./Hero.types";
@@ -26,8 +27,12 @@ export const Hero = ({ className }: HeroProps) => {
     >
       {/* Background photo — responsive <img>, decorative (alt=""), fetchpriority high (above fold) */}
       <img
-        src="/photos/hero-1280.webp"
-        srcSet="/photos/hero-640.webp 640w, /photos/hero-1280.webp 1280w, /photos/hero-1920.webp 1920w"
+        src={assetPath("/photos/hero-1280.webp")}
+        srcSet={assetSrcSet([
+          ["/photos/hero-640.webp", "640w"],
+          ["/photos/hero-1280.webp", "1280w"],
+          ["/photos/hero-1920.webp", "1920w"],
+        ])}
         sizes="100vw"
         alt=""
         aria-hidden="true"

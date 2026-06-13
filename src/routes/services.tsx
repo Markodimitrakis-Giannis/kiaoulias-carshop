@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import i18n from "@/i18n";
+import { absoluteAssetUrl, siteUrl } from "@/lib/asset";
 
 export const Route = createFileRoute("/services")({
   head: () => {
@@ -22,10 +23,10 @@ export const Route = createFileRoute("/services")({
             "Tyre sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing.",
         },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://www.kiaoulias.gr/services" },
-        { property: "og:image", content: "/og-image.jpg" },
+        { property: "og:url", content: siteUrl("/services") },
+        { property: "og:image", content: absoluteAssetUrl("/photos/tyre-fitting-960.webp") },
       ],
-      links: [{ rel: "canonical", href: "https://www.kiaoulias.gr/services" }],
+      links: [{ rel: "canonical", href: siteUrl("/services") }],
     };
   },
 });

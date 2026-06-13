@@ -1,4 +1,4 @@
-import { createRootRoute, Outlet, ScrollRestoration } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet, ScrollRestoration } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
 import { Footer } from "@/components/Footer";
@@ -11,6 +11,7 @@ function RootLayout() {
 
   return (
     <>
+      <HeadContent />
       <ScrollRestoration />
       <a
         href="#main-content"

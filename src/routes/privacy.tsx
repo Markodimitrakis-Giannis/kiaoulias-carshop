@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import i18n from "@/i18n";
+import { absoluteAssetUrl, siteUrl } from "@/lib/asset";
 
 export const Route = createFileRoute("/privacy")({
 
@@ -23,10 +24,10 @@ export const Route = createFileRoute("/privacy")({
             "Privacy policy for Kiaoulias Tyres. We only collect what you give us in the booking form and never sell your data.",
         },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://www.kiaoulias.gr/privacy" },
-        { property: "og:image", content: "/og-image.jpg" },
+        { property: "og:url", content: siteUrl("/privacy") },
+        { property: "og:image", content: absoluteAssetUrl("/photos/hero-1280.webp") },
       ],
-      links: [{ rel: "canonical", href: "https://www.kiaoulias.gr/privacy" }],
+      links: [{ rel: "canonical", href: siteUrl("/privacy") }],
     };
   },
 });

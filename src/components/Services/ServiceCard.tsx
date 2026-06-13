@@ -4,6 +4,7 @@ import { Card } from "@/components/Card";
 import { Icon } from "@/components/Icon";
 import { IconSize } from "@/components/Icon/Icon.types";
 import { TranslationNamespace } from "@/i18n/types";
+import { assetPath, assetSrcSet } from "@/lib/asset";
 
 import type { ServiceCardProps } from "./Services.types";
 
@@ -18,13 +19,19 @@ interface ImgAttrs {
 function buildSrcSet(base: string): ImgAttrs {
   if (PORTRAIT_BASES.has(base)) {
     return {
-      src: `/photos/${base}-960.webp`,
-      srcSet: `/photos/${base}-480.webp 480w, /photos/${base}-960.webp 960w`,
+      src: assetPath(`/photos/${base}-960.webp`),
+      srcSet: assetSrcSet([
+        [`/photos/${base}-480.webp`, "480w"],
+        [`/photos/${base}-960.webp`, "960w"],
+      ]),
     };
   }
   return {
-    src: `/photos/${base}-1280.webp`,
-    srcSet: `/photos/${base}-640.webp 640w, /photos/${base}-1280.webp 1280w`,
+    src: assetPath(`/photos/${base}-1280.webp`),
+    srcSet: assetSrcSet([
+      [`/photos/${base}-640.webp`, "640w"],
+      [`/photos/${base}-1280.webp`, "1280w"],
+    ]),
   };
 }
 
