@@ -9,27 +9,17 @@ import { LoadingState } from "@/types/common";
 import type { BookingFormValues } from "./BookingForm.types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const TYRE_SIZE_KEY = "tyreSize";
-
-const readAndClearTyreSize = (): string => {
-  const size = sessionStorage.getItem(TYRE_SIZE_KEY) ?? "";
-  if (size) sessionStorage.removeItem(TYRE_SIZE_KEY);
-  return size;
-};
 
 export const useBookingForm = () => {
   const { t: tValidation } = useTranslation(TranslationNamespace.VALIDATION);
   const [submitState, setSubmitState] = useState<LoadingState>(LoadingState.IDLE);
-
-  // Pre-fill vehicle field with tyre size passed from the hero finder
-  const prefillSize = readAndClearTyreSize();
 
   const form = useForm({
     defaultValues: {
       name: "",
       phone: "",
       email: "",
-      vehicle: prefillSize ? `Tyre size: ${prefillSize}` : "",
+      vehicle: "",
       service: "" as BookingFormValues["service"],
       consent: false,
     },

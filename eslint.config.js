@@ -37,6 +37,12 @@ export default defineConfig([
       "jsx-a11y/alt-text": "error",
       "jsx-a11y/no-static-element-interactions": "error",
       "jsx-a11y/click-events-have-key-events": "error",
+      // Keyboard-focusable scroll regions (carousels) are a valid WCAG pattern:
+      // a labelled role="region" with tabindex="0" so keyboard users can scroll.
+      "jsx-a11y/no-noninteractive-tabindex": [
+        "error",
+        { tags: [], roles: ["tabpanel", "region"], allowExpressionValues: true },
+      ],
       "import/no-cycle": "error",
       "import/order": [
         "error",

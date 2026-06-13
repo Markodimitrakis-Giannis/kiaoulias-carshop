@@ -27,7 +27,7 @@ const GALLERY_IMAGES: GalleryImage[] = [
 export const Gallery = ({ className }: GalleryProps) => {
   const { t } = useTranslation(TranslationNamespace.GALLERY);
   const { trackRef, canScrollPrev, canScrollNext, scrollPrev, scrollNext } =
-    useScrollSlider<HTMLUListElement>();
+    useScrollSlider<HTMLDivElement>();
 
   const arrowClass =
     "grid h-11 w-11 place-items-center rounded-md border border-border-strong text-body transition-colors duration-200 hover:border-accent hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-40";
@@ -57,27 +57,32 @@ export const Gallery = ({ className }: GalleryProps) => {
         </div>
       </div>
 
-      {/* Scroll-snap slider — swipe on touch, arrow keys when focused, buttons on desktop */}
-      <ul
+      {/* Scroll-snap slider — swipe on touch, arrow keys when focused, buttons on desktop.
+          A labelled focusable region wraps the list so keyboard users can scroll it. */}
+      <div
         ref={trackRef}
+        role="region"
         aria-label={t("regionLabel")}
-        className="gallery-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:gap-4"
+        tabIndex={0}
+        className="gallery-track snap-x snap-mandatory overflow-x-auto pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        {GALLERY_IMAGES.map((img) => (
-          <li key={img.altKey} className={cn("w-4/5 shrink-0 snap-start sm:w-1/2 lg:w-1/3")}>
-            <div className="overflow-hidden rounded-lg">
-              <img
-                src={img.src}
-                srcSet={img.srcSet}
-                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 80vw"
-                loading="lazy"
-                alt={t(`images.${img.altKey}`)}
-                className="aspect-[4/3] w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:scale-[1.03]"
-              />
-            </div>
-          </li>
-        ))}
-      </ul>
+        <ul className="flex gap-3 md:gap-4">
+          {GALLERY_IMAGES.map((img) => (
+            <li key={img.altKey} className={cn("w-4/5 shrink-0 snap-start sm:w-1/2 lg:w-1/3")}>
+              <div className="overflow-hidden rounded-lg">
+                <img
+                  src={img.src}
+                  srcSet={img.srcSet}
+                  sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 80vw"
+                  loading="lazy"
+                  alt={t(`images.${img.altKey}`)}
+                  className="aspect-[4/3] w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:scale-[1.03]"
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </SectionWrapper>
   );
 };

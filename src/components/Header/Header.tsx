@@ -1,10 +1,16 @@
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, Smartphone, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@tanstack/react-router";
 import i18n from "i18next";
 
 import { AppRoute } from "@/constants/routes";
-import { COMPANY_NAME, PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
+import {
+  COMPANY_NAME,
+  MOBILE_NUMBER,
+  MOBILE_TEL,
+  PHONE_NUMBER,
+  PHONE_TEL,
+} from "@/constants/content";
 import { ensureLanguageLoaded } from "@/i18n";
 import { TranslationNamespace } from "@/i18n/types";
 import { assetPath } from "@/lib/asset";
@@ -91,11 +97,11 @@ export const Header = () => {
             onChangeLanguage={handleLanguageChange}
           />
 
-          {/* Phone link — icon-only to keep the navbar compact. */}
+          {/* Phone links — icon-only to keep the navbar compact (landline + mobile). */}
           <a
             href={`tel:${PHONE_TEL}`}
             aria-label={`${t("phone.label")} ${PHONE_NUMBER}`}
-            title={PHONE_NUMBER}
+            title={`${t("phone.landline")}: ${PHONE_NUMBER}`}
             className={cn(
               "site-phone-link hidden h-10 w-10 items-center justify-center rounded-md border border-border-strong text-body",
               "transition-colors duration-200 hover:text-accent-text",
@@ -104,6 +110,20 @@ export const Header = () => {
             )}
           >
             <Phone size={18} aria-hidden="true" />
+          </a>
+
+          <a
+            href={`tel:${MOBILE_TEL}`}
+            aria-label={`${t("phone.labelMobile")} ${MOBILE_NUMBER}`}
+            title={`${t("phone.mobile")}: ${MOBILE_NUMBER}`}
+            className={cn(
+              "site-phone-link hidden h-10 w-10 items-center justify-center rounded-md border border-border-strong text-body",
+              "transition-colors duration-200 hover:text-accent-text",
+              "hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+              "lg:flex",
+            )}
+          >
+            <Smartphone size={18} aria-hidden="true" />
           </a>
 
           {/* CTA — hidden below md */}

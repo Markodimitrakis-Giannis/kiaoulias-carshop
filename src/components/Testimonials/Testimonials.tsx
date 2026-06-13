@@ -40,7 +40,7 @@ const ReviewCard = ({ review, source }: ReviewCardProps) => (
 export const Testimonials = ({ className }: TestimonialsProps) => {
   const { t } = useTranslation(TranslationNamespace.TESTIMONIALS);
   const { trackRef, canScrollPrev, canScrollNext, scrollPrev, scrollNext } =
-    useScrollSlider<HTMLUListElement>();
+    useScrollSlider<HTMLDivElement>();
 
   const reviews = REVIEW_INDICES.map(
     (i): ReviewEntry => ({ quote: t(`reviews.${i}.quote`), stars: 5 }),
@@ -76,17 +76,22 @@ export const Testimonials = ({ className }: TestimonialsProps) => {
         </div>
       </div>
 
-      <ul
+      {/* Labelled focusable region wraps the list so keyboard users can scroll it. */}
+      <div
         ref={trackRef}
+        role="region"
         aria-label={t("regionLabel")}
-        className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1"
+        tabIndex={0}
+        className="no-scrollbar snap-x snap-mandatory overflow-x-auto pb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        {reviews.map((review, i) => (
-          <li key={i} className="w-4/5 shrink-0 snap-start sm:w-1/2 lg:w-1/3">
-            <ReviewCard review={review} source={t("source")} />
-          </li>
-        ))}
-      </ul>
+        <ul className="flex gap-4">
+          {reviews.map((review, i) => (
+            <li key={i} className="w-4/5 shrink-0 snap-start sm:w-1/2 lg:w-1/3">
+              <ReviewCard review={review} source={t("source")} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </SectionWrapper>
   );
 };

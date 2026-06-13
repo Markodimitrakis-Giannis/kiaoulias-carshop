@@ -33,10 +33,12 @@
  },
  "social": {
  "instagram": "Ακολουθήστε μας στο Instagram",
- "facebook": "Ακολουθήστε μας στο Facebook",
  "map": "Βρείτε μας στον χάρτη"
  },
  "phone": {
- "label": "Καλέστε μας"
+ "label": "Καλέστε μας",
+ "labelMobile": "Καλέστε στο κινητό",
+ "landline": "Σταθερό",
+ "mobile": "Κινητό"
  }
 }

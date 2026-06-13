@@ -4,14 +4,6 @@
  "sub": "Family-run tyre shop in Heraklion. Honest pricing, precision wheel alignment, and brands you trust, in and out without the runaround.",
  "cta1": "Get a tyre quote",
  "cta2": "Call us",
- "quick": {
- "title": "Quick tyre check",
- "sub": "Tell us your size, we'll confirm stock & price.",
- "size": "Tyre size",
- "placeholder": "205/55 R16",
- "btn": "Check availability",
- "err": "Please enter a tyre size first."
- },
  "trust": {
  "h": "Why customers choose us",
  "1": {

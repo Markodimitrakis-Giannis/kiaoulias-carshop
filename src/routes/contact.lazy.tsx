@@ -1,5 +1,5 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { Clock, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin, Phone, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { BookingForm } from "@/components/BookingForm";
@@ -7,7 +7,13 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Heading } from "@/components/Heading";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.types";
-import { ADDRESS, PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
+import {
+  ADDRESS,
+  MOBILE_NUMBER,
+  MOBILE_TEL,
+  PHONE_NUMBER,
+  PHONE_TEL,
+} from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
 import { assetPath, assetSrcSet } from "@/lib/asset";
 
@@ -15,6 +21,7 @@ import { assetPath, assetSrcSet } from "@/lib/asset";
 function ContactPage() {
   const { t } = useTranslation(TranslationNamespace.CONTACT);
   const { t: tGallery } = useTranslation(TranslationNamespace.GALLERY);
+  const { t: tCommon } = useTranslation(TranslationNamespace.COMMON);
 
   return (
     <>
@@ -40,9 +47,20 @@ function ContactPage() {
                   <Phone size={18} className="shrink-0 text-accent" aria-hidden="true" />
                   <a
                     href={`tel:${PHONE_TEL}`}
+                    aria-label={`${tCommon("phone.landline")} ${PHONE_NUMBER}`}
                     className="font-mono text-base transition-colors duration-200 hover:text-accent-text focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
                     {PHONE_NUMBER}
+                  </a>
+                </li>
+                <li className="flex items-center gap-3 text-body">
+                  <Smartphone size={18} className="shrink-0 text-accent" aria-hidden="true" />
+                  <a
+                    href={`tel:${MOBILE_TEL}`}
+                    aria-label={`${tCommon("phone.mobile")} ${MOBILE_NUMBER}`}
+                    className="font-mono text-base transition-colors duration-200 hover:text-accent-text focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    {MOBILE_NUMBER}
                   </a>
                 </li>
                 <li className="flex items-center gap-3 text-body">

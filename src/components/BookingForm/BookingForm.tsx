@@ -44,7 +44,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
         {/* Left column: copy + contact details */}
         <div className="flex flex-col gap-6 lg:w-2/5">
           <div className="flex flex-col gap-2">
-            <Eyebrow>{t("eyebrow")}</Eyebrow>
+            <Eyebrow onDark>{t("eyebrow")}</Eyebrow>
             <Heading level={2} id="booking-heading" className="text-white">
               {t("h")}
             </Heading>

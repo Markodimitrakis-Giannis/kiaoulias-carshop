@@ -33,10 +33,12 @@
  },
  "social": {
  "instagram": "Follow us on Instagram",
- "facebook": "Follow us on Facebook",
  "map": "Find us on the map"
  },
  "phone": {
- "label": "Call us"
+ "label": "Call us",
+ "labelMobile": "Call our mobile",
+ "landline": "Landline",
+ "mobile": "Mobile"
  }
 }
