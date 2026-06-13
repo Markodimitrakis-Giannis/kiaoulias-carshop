@@ -1,0 +1,23 @@
+{
+ "eyebrow": "// Book in",
+ "h": "Book your slot",
+ "sub": "Send the basics and we'll confirm by phone within the hour during opening times.",
+ "addr": "Efodou 10, Heraklion 713 03",
+ "hours": "Mon–Fri 08–17 · Sat 08–15",
+ "form": {
+ "name": "Name",
+ "phone": "Phone",
+ "email": "Email",
+ "car": "Vehicle (optional)",
+ "service": "Service",
+ "hint": "Phone or email, at least one, so we can reach you.",
+ "opt1": "Tyres",
+ "opt2": "Alignment",
+ "opt3": "Balancing",
+ "opt4": "Other",
+ "submit": "Request booking",
+ "consent1": "I agree to the",
+ "consentLink": "privacy policy",
+ "success": "Request sent, we'll confirm shortly."
+ }
+}

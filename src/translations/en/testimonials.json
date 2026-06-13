@@ -1,0 +1,19 @@
+{
+  "eyebrow": "// What customers say",
+  "h": "Rated 5.0 by drivers across Heraklion.",
+  "aggregate": "5.0 ★ · 67 reviews on Google",
+  "source": "Google review",
+  "prev": "Previous reviews",
+  "next": "More reviews",
+  "regionLabel": "Customer reviews",
+  "reviews": [
+    { "quote": "Orestis was very helpful and fast in repairing our tyre. The service was exceptional and seamless. Thank you!", "stars": 5 },
+    { "quote": "A great guy, helpful and fast, with good prices and good tyres. He explained everything about the tyres. I recommend him 100%.", "stars": 5 },
+    { "quote": "Went in after a tyre blowout. He didn't have the one we needed in stock, so he rang round six garages for us and found one. Would recommend 100%.", "stars": 5 },
+    { "quote": "Very professional and fast. I'm a tourist here and he helped with our punctured car with real honesty and kindness. Grateful for his help.", "stars": 5 },
+    { "quote": "Immediate service, very polite, knowledgeable and great at finding solutions.", "stars": 5 },
+    { "quote": "Took care of everything quickly and at a fair price. Very gentle. Highly recommend.", "stars": 5 },
+    { "quote": "Friendly, helpful and quick. Very good prices and prompt service!", "stars": 5 },
+    { "quote": "Impeccable service and kind staff. Fast, polite and well priced.", "stars": 5 }
+  ]
+}

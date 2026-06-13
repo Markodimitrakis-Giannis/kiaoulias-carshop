@@ -1,0 +1,9 @@
+/* Hide the scrollbar on the slider track while keeping it scrollable/swipeable. */
+.gallery-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}

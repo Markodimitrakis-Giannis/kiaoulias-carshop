@@ -1,0 +1,41 @@
+{
+ "skip": "Skip to content",
+ "nav": {
+ "services": "Services",
+ "why": "Why us",
+ "faq": "FAQ",
+ "contact": "Contact",
+ "about": "About",
+ "label": "Main navigation",
+ "labelMobile": "Mobile navigation",
+ "labelFooter": "Footer navigation",
+ "homeLabel": "{{company}}, Home"
+ },
+ "cta": {
+ "book": "Book now"
+ },
+ "foot": {
+ "tag": "Tyres, alignment & balancing in central Heraklion since 2005.",
+ "privacy": "Privacy policy",
+ "copyright": "© {{year}} Kiaoulias Tyres. All rights reserved."
+ },
+ "theme": {
+ "toggleLight": "Switch to light mode",
+ "toggleDark": "Switch to dark mode"
+ },
+ "lang": {
+ "toggle": "Switch language"
+ },
+ "menu": {
+ "open": "Open menu",
+ "close": "Close menu"
+ },
+ "social": {
+ "instagram": "Follow us on Instagram",
+ "facebook": "Follow us on Facebook",
+ "map": "Find us on the map"
+ },
+ "phone": {
+ "label": "Call us"
+ }
+}

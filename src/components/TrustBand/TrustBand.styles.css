@@ -1,0 +1,55 @@
+/* Brand marquee — horizontally scrolling brand names.
+   Two identical lists concatenated for seamless infinite loop.
+   motion-safe: plays animation; under reduced-motion the list is static
+   (animation-duration collapses to 0.01ms via the global override, but
+   animation-fill-mode: both keeps it at final/visible state). */
+.brand-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
+  .brand-track {
+    animation: brand-scroll 22s linear infinite;
+  }
+
+  .brand-marquee:hover .brand-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes brand-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Translate by exactly half the total width (one duplicated list) */
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Static row — wrap on overflow under reduced motion */
+  .brand-track {
+    flex-wrap: wrap;
+  }
+}

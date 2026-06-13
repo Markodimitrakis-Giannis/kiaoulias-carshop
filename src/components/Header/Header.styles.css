@@ -1,0 +1,22 @@
+/* Futuristic nav links — animated accent underline that sweeps in on hover and
+   stays lit on the active route ([aria-current="page"] set via TanStack activeProps). */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px rgba(242, 100, 25, 0.6);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  width: 100%;
+}

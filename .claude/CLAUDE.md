@@ -2,7 +2,7 @@
 
 > A portfolio website for a car mechanic shop. Trustworthy, professional, and grounded — communicating expertise and reliability to customers looking for automotive repair services.
 
-**Stack:** React · TypeScript · Tailwind CSS · TanStack Router · TanStack Form
+**Stack:** Vite 8 · React 19 · TypeScript · Tailwind CSS v4 · TanStack Router · TanStack Form
 
 ---
 
@@ -329,6 +329,14 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 - Avoid prop drilling beyond 2 levels — use composition or context.
 - Prefer **composition over configuration** — pass children instead of building mega-components with dozens of props.
 
+### React 19
+
+- **`ref` is a regular prop.** Don't use `forwardRef` for new components — accept `ref` directly in props.
+- **No `React.FC`.** Type props explicitly: `({ children }: ComponentNameProps) => { ... }`.
+- Context: render `<MyContext>` directly as the provider instead of `<MyContext.Provider>`.
+- **Memoize manually.** React Compiler is intentionally **not** enabled here — keep explicit `useMemo`/`useCallback`/`memo` where they matter for perf.
+- Use the `use` hook to read promises/context conditionally where it simplifies flow.
+
 ---
 
 ## Styling
@@ -339,28 +347,35 @@ Zero `style={{}}` props in JSX.
 
 ### Tailwind — Ready Classes Only
 
+- **Tailwind v4 (CSS-first).** Config lives in CSS via the `@theme` directive — there is **no `tailwind.config.ts`**. Install with the `@tailwindcss/vite` plugin (not PostCSS).
 - **Use Tailwind's built-in spacing scale** (`p-4`, `gap-6`, `max-w-xl`). Never use arbitrary values like `p-[13px]` or `w-[247px]`. Pick the nearest value from the scale.
-- **Extend the theme** in `tailwind.config.ts` for project tokens (colors, fonts). No hardcoded hex in class strings.
+- **Define project tokens** as `@theme` CSS variables in `styles/global.css`. No hardcoded hex in class strings.
 - Group classes logically: layout → sizing → spacing → typography → colors → effects → states.
 - Use `cn()` (clsx + twMerge) for conditional classes. Never string-concatenate.
 
+```css
+/* styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #2a2a2a;
+  --color-accent: #e87a1e;
+  --color-accent-hover: #f59035;
+
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+```
+
+Token names map to utilities automatically: `--color-accent` → `bg-accent`/`text-accent`, `--font-display` → `font-display`.
+
 ```ts
-// tailwind.config.ts
-export default {
-  theme: {
-    extend: {
-      colors: {
-        surface: "#2a2a2a",
-        accent: "#e87a1e",
-        "accent-hover": "#f59035",
-      },
-      fontFamily: {
-        display: ['"Barlow Condensed"', "sans-serif"],
-        body: ['"DM Sans"', "sans-serif"],
-      },
-    },
-  },
-};
+// vite.config.ts
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss(), tanstackRouter()],
+});
 ```
 
 ### Component-Scoped CSS
@@ -1065,13 +1080,16 @@ Before adding any dependency:
 
 ### Tools
 
-- **ESLint** — `@typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`
+- **ESLint 9 flat config** (`eslint.config.js`) — no legacy `.eslintrc`. Compose with `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y`, `eslint-plugin-import`.
 - **Prettier** — formatting
 
 ### Key Rules
 
-```json
-{
+Defined in `eslint.config.js` as a flat-config array. Rules object:
+
+```js
+// eslint.config.js (excerpt)
+rules: {
   "@typescript-eslint/no-explicit-any": "error",
   "@typescript-eslint/no-unused-vars": "error",
   "no-console": "error",
@@ -1082,9 +1100,9 @@ Before adding any dependency:
   "jsx-a11y/click-events-have-key-events": "error",
   "import/no-cycle": "error",
   "import/order": ["error", {
-    "groups": ["builtin", "external", "internal", "parent", "sibling"],
-    "newlines-between": "always"
-  }]
+    groups: ["builtin", "external", "internal", "parent", "sibling"],
+    "newlines-between": "always",
+  }],
 }
 ```
 

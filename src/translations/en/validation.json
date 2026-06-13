@@ -1,0 +1,8 @@
+{
+ "err": {
+ "name": "Please enter your name.",
+ "contact": "Add a phone number or an email so we can reach you.",
+ "email": "That email doesn't look right.",
+ "consent": "Please accept the privacy policy."
+ }
+}

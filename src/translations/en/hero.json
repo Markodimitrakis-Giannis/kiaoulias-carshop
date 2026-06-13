@@ -1,0 +1,30 @@
+{
+ "eyebrow": "// Tyres · Alignment · Balancing",
+ "title": "The right tyres, fitted right, same day.",
+ "sub": "Family-run tyre shop in Heraklion. Honest pricing, precision wheel alignment, and brands you trust, in and out without the runaround.",
+ "cta1": "Get a tyre quote",
+ "cta2": "Call us",
+ "quick": {
+ "title": "Quick tyre check",
+ "sub": "Tell us your size, we'll confirm stock & price.",
+ "size": "Tyre size",
+ "placeholder": "205/55 R16",
+ "btn": "Check availability",
+ "err": "Please enter a tyre size first."
+ },
+ "trust": {
+ "h": "Why customers choose us",
+ "1": {
+ "t": "Clear pricing",
+ "b": "The price we quote is the price you pay. No surprises at the counter."
+ },
+ "2": {
+ "t": "Same-day fitting",
+ "b": "Most tyre and alignment jobs done while you wait. Book a slot, skip the wait."
+ },
+ "3": {
+ "t": "Workmanship guarantee",
+ "b": "Every fit and alignment backed in writing. Something off? We make it right."
+ }
+ }
+}

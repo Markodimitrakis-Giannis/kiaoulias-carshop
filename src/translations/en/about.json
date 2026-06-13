@@ -1,0 +1,37 @@
+{
+ "eyebrow": "// Our story",
+ "h": "About us",
+ "intro": "Family-run tyre and alignment shop in central Heraklion. We've been on the same street since 2005, same faces, same standards.",
+ "story": {
+ "h": "Two decades on the same street",
+ "p1": "Kiaoulias Tyres started as a small tyre-fitting bay and has grown steadily by doing one thing well: fitting the right tyre correctly, every time. No hard sell, no surprises on the invoice.",
+ "p2": "We invested early in computerised alignment equipment and Hunter balancing machines because we believe precision matters as much as the tyre itself. Most of our customers come back every season, that's the measure we care about."
+ },
+ "values": {
+ "h": "What we stand for",
+ "honest": {
+ "t": "Honest advice",
+ "b": "We'll tell you if your tyres still have life in them. We'd rather you trust us than make a sale you didn't need."
+ },
+ "precision": {
+ "t": "Precision work",
+ "b": "Computerised alignment and certified balancing on every job. If it's worth doing, it's worth doing right."
+ },
+ "fast": {
+ "t": "Respect for your time",
+ "b": "Most jobs are done while you wait. Book a slot and we'll have your tyres ready when you arrive."
+ }
+ },
+ "stat": {
+ "years": "years on the same street"
+ },
+ "cta": {
+ "h": "Come and see us",
+ "p": "Walk-ins welcome. Or book a slot online and skip the queue.",
+ "btn": "Book your slot"
+ },
+ "meta": {
+ "title": "About Us | Kiaoulias Tyres",
+ "description": "Family-run tyre and alignment shop in central Heraklion since 2005. Honest pricing, precision alignment, same-day fitting."
+ }
+}

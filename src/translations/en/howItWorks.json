@@ -1,0 +1,19 @@
+{
+ "eyebrow": "// How it works",
+ "h": "From appointment to road, under 45 minutes.",
+ "1": {
+ "num": "01",
+ "title": "Book or drop in",
+ "body": "Call, WhatsApp, or use the form below. Walk-ins welcome, booking means your tyres are pulled before you arrive."
+ },
+ "2": {
+ "num": "02",
+ "title": "We fit, balance & align",
+ "body": "Precision mounting, dynamic balancing on our Hunter machine, and four-wheel alignment if needed. Done right, first time."
+ },
+ "3": {
+ "num": "03",
+ "title": "Back on the road",
+ "body": "TPMS reset, torque check, visual inspection. Most jobs out the door in 30–45 minutes. You leave with the paperwork."
+ }
+}

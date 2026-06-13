@@ -1,0 +1,63 @@
+/* Hero background photo — full-cover <img> element (replaced CSS bg-image for
+   native browser lazy/priority handling and proper srcset/sizes support) */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(15, 15, 15, 0.85) 40%,
+    rgba(15, 15, 15, 0.5) 100%
+  );
+}
+
+/* Light mode: flip the overlay so dark text stays legible */
+html.light .hero-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(245, 245, 243, 0.88) 40%,
+    rgba(245, 245, 243, 0.62) 100%
+  );
+}
+
+/* ==========================================================================
+   Orchestrated hero entrance animation
+   5 staggered elements: eyebrow → H1 → subtext → CTA row → chips/finder card
+   Each fades up: opacity 0→1, translateY 12px→0.
+   animation-fill-mode: both ensures the element stays at its final visible
+   state even before the animation starts (forward fill) and after it ends
+   (both). This means under prefers-reduced-motion the final state is always
+   visible regardless of the global 0.01ms override.
+   ========================================================================== */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation-name: hero-fade-up;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+/* Stagger delays: 0ms, 80ms, 160ms, 240ms, 320ms — total visible by ~720ms */
+.hero-animate--1 { animation-delay: 0ms; }
+.hero-animate--2 { animation-delay: 80ms; }
+.hero-animate--3 { animation-delay: 160ms; }
+.hero-animate--4 { animation-delay: 240ms; }
+.hero-animate--5 { animation-delay: 320ms; }
