@@ -149,6 +149,27 @@ body {
   line-height: var(--leading-normal);
 }
 
+/* Greek labels and headings are longer, and wide uppercase tracking can push
+   compact mobile controls beyond the viewport. Tighten only Greek display UI. */
+html[lang="el"] .font-display,
+html[lang="el"] .font-mono {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+html[lang="el"] .tracking-wider {
+  letter-spacing: 0.04em;
+}
+
+html[lang="el"] .tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+html[lang="el"] button,
+html[lang="el"] a {
+  min-width: 0;
+}
+
 /* Visible focus for keyboard users — never removed (CLAUDE.md hard rule) */
 :focus-visible {
   outline: 2px solid var(--color-accent);

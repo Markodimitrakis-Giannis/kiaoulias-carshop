@@ -54,6 +54,7 @@ export const Footer = ({ className }: FooterProps) => {
         <div className="flex flex-col gap-3">
           <Link
             to={AppRoute.HOME}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className={cn(
               "flex w-fit items-center gap-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm",
@@ -85,7 +86,7 @@ export const Footer = ({ className }: FooterProps) => {
                 </a>
               </li>
               <li>{ADDRESS}</li>
-              <li>Mon–Fri 08:00–17:00 · Sat 08:00–15:00</li>
+              <li>{t("foot.hours")}</li>
               <li className="pt-1">
                 <Link
                   to={AppRoute.PRIVACY}

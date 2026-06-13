@@ -47,6 +47,7 @@ export const Header = () => {
         {/* Logo — theme-aware (orange+white on dark, orange+black on light) */}
         <Link
           to={AppRoute.HOME}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className={cn(
             "flex shrink-0 items-center",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm",
