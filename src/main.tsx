@@ -17,7 +17,8 @@ if (import.meta.env.DEV) {
   });
 }
 
-const router = createRouter({ routeTree });
+const routerBasepath = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+const router = createRouter({ routeTree, basepath: routerBasepath });
 
 declare module "@tanstack/react-router" {
   interface Register {
