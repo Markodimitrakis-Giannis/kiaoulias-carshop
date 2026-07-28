@@ -1,17 +1,17 @@
 {
  "eyebrow": "Our story",
  "h": "About us",
- "intro": "Family-run tyre and alignment shop in central Heraklion. We've been on the same street since 1970, same faces, same standards.",
+ "intro": "Family-run tire and alignment shop in central Heraklion. We've been on the same street since 1970, same faces, same standards.",
  "story": {
   "h": "Two decades on the same street",
-  "p1": "Kiaoulias Tyres started as a small tyre-fitting bay and has grown steadily by doing one thing well: fitting the right tyre correctly, every time. No hard sell, no surprises on the invoice.",
-  "p2": "We invested early in computerised alignment and balancing equipment because we believe precision matters as much as the tyre itself. Most of our customers come back every season, that's the measure we care about."
+  "p1": "Kiaoulias Tires started as a small tire-fitting bay and has grown steadily by doing one thing well: fitting the right tire correctly, every time. No hard sell, no surprises on the invoice.",
+  "p2": "We invested early in computerised alignment and balancing equipment because we believe precision matters as much as the tire itself. Most of our customers come back every season, that's the measure we care about."
  },
  "values": {
   "h": "What we stand for",
   "honest": {
    "t": "Honest advice",
-   "b": "We'll tell you if your tyres still have life in them. We'd rather you trust us than make a sale you didn't need."
+   "b": "We'll tell you if your tires still have life in them. We'd rather you trust us than make a sale you didn't need."
   },
   "precision": {
    "t": "Precision work",
@@ -19,7 +19,7 @@
   },
   "fast": {
    "t": "Respect for your time",
-   "b": "Most jobs are done while you wait. Book a slot and we'll have your tyres ready when you arrive."
+   "b": "Most jobs are done while you wait. Book a slot and we'll have your tires ready when you arrive."
   }
  },
  "stat": {
@@ -31,7 +31,7 @@
   "btn": "Book your slot"
  },
  "meta": {
-  "title": "About Us | Kiaoulias Tyres",
-  "description": "Family-run tyre and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting."
+  "title": "About Us | Kiaoulias Tires",
+  "description": "Family-run tire and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting."
  }
 }

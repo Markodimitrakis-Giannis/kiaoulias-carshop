@@ -1,4 +1,4 @@
-export const COMPANY_NAME = "Kiaoulias Tyres";
+export const COMPANY_NAME = "Kiaoulias Tires";
 export const PHONE_NUMBER = "+30 2810 250 120";
 export const PHONE_TEL = "+302810250120";
 export const MOBILE_NUMBER = "+30 697 228 5414";

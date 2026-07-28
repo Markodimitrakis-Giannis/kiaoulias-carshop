@@ -3,14 +3,14 @@
  "h": "Services",
  "filter": {
   "all": "All",
-  "tyres": "Tyres",
+  "tyres": "Tires",
   "align": "Alignment",
   "more": "More"
  },
  "tyres": {
-  "t": "Tyre sales & fitting",
+  "t": "Tire sales & fitting",
   "b": "Summer, winter, all-season and run-flat. Major brands and budget options, fitted on site.",
-  "p": "from €45 / tyre"
+  "p": "from €45 / tire"
  },
  "align": {
   "t": "Wheel alignment",
@@ -34,7 +34,7 @@
  },
  "repair": {
   "t": "Puncture repair",
-  "b": "Safe, regulation repairs where the tyre allows, far cheaper than a replacement.",
+  "b": "Safe, regulation repairs where the tire allows, far cheaper than a replacement.",
   "p": "from €10"
  },
  "band": {
@@ -64,7 +64,7 @@
   }
  },
  "meta": {
-  "title": "Services | Kiaoulias Tyres",
-  "description": "Tyre sales & fitting, wheel alignment, balancing, TPMS, rim sales & repair and puncture repair in central Heraklion. Same-day service, honest pricing."
+  "title": "Services | Kiaoulias Tires",
+  "description": "Tire sales & fitting, wheel alignment, balancing, TPMS, rim sales & repair and puncture repair in central Heraklion. Same-day service, honest pricing."
  }
 }

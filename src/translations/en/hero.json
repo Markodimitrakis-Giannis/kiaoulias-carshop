@@ -1,16 +1,16 @@
 {
- "eyebrow": "Tyres · Alignment · Balancing",
- "title": "The right tyres, fitted right.",
- "sub": "Family-run shop in Heraklion. Tyre repairs for cars and motorcycles — honest, same day.",
- "cta1": "Get a tyre quote",
+ "eyebrow": "Tires · Alignment · Balancing",
+ "title": "The right tires, fitted right.",
+ "sub": "Family-run shop in Heraklion. Tire repairs for cars and motorcycles — honest, same day.",
+ "cta1": "Get a tire quote",
  "cta2": "Call us",
  "finder": {
-  "label": "Tyre size finder",
+  "label": "Tire size finder",
   "width": "Width",
   "profile": "Profile",
   "rim": "Rim",
   "submit": "See prices",
-  "hint": "It's on your tyre wall — e.g. 205/55 R16",
+  "hint": "It's on your tire wall — e.g. 205/55 R16",
   "readoutLabel": "Your size"
  },
  "trust": {
@@ -21,7 +21,7 @@
   },
   "2": {
    "t": "Same-day fitting",
-   "b": "Most tyre and alignment jobs done while you wait. Book a slot, skip the wait."
+   "b": "Most tire and alignment jobs done while you wait. Book a slot, skip the wait."
   },
   "3": {
    "t": "Workmanship guarantee",

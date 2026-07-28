@@ -8,19 +8,19 @@ export const Route = createFileRoute("/services")({
     const t = (key: string) => i18n.t(key, { ns: "services" });
     return {
       meta: [
-        { title: t("meta.title") || "Services | Kiaoulias Tyres" },
+        { title: t("meta.title") || "Services | Kiaoulias Tires" },
         {
           name: "description",
           content:
             t("meta.description") ||
-            "Tyre sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing.",
+            "Tire sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing.",
         },
-        { property: "og:title", content: t("meta.title") || "Services | Kiaoulias Tyres" },
+        { property: "og:title", content: t("meta.title") || "Services | Kiaoulias Tires" },
         {
           property: "og:description",
           content:
             t("meta.description") ||
-            "Tyre sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing.",
+            "Tire sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/services") },

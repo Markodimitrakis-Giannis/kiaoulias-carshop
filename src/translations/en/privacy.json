@@ -2,29 +2,29 @@
  "back": "Back to home",
  "h": "Privacy policy",
  "updated": "Last updated: June 2026, placeholder text, review with a legal advisor before launch.",
- "intro": "This page explains what personal data Kiaoulias Tyres collects through this website and how we use it. Short version: only what you type into the booking form, only to serve you, never sold.",
+ "intro": "This page explains what personal data Kiaoulias Tires collects through this website and how we use it. Short version: only what you type into the booking form, only to serve you, never sold.",
  "collect": {
- "h": "What we collect",
- "b": "Only what you give us in the booking form: your name, a phone number and/or email, and, optionally, your vehicle details and the service you're interested in. No accounts, no ad trackers."
+  "h": "What we collect",
+  "b": "Only what you give us in the booking form: your name, a phone number and/or email, and, optionally, your vehicle details and the service you're interested in. No accounts, no ad trackers."
  },
  "use": {
- "h": "How we use it",
- "b": "To confirm and manage your booking and to contact you about it. We don't send marketing and we never sell or share your details with third parties."
+  "h": "How we use it",
+  "b": "To confirm and manage your booking and to contact you about it. We don't send marketing and we never sell or share your details with third parties."
  },
  "store": {
- "h": "How long we keep it",
- "b": "Booking requests are kept for up to 12 months for warranty and service history, then deleted."
+  "h": "How long we keep it",
+  "b": "Booking requests are kept for up to 12 months for warranty and service history, then deleted."
  },
  "rights": {
- "h": "Your rights",
- "b": "Under GDPR you can ask to see, correct or delete your data at any time. One phone call or email is enough, no forms, no waiting."
+  "h": "Your rights",
+  "b": "Under GDPR you can ask to see, correct or delete your data at any time. One phone call or email is enough, no forms, no waiting."
  },
  "contact": {
- "h": "Contact",
- "b": "Questions about your data? Call 2810 250 120 or visit us at Efodou 10, Heraklion 713 03."
+  "h": "Contact",
+  "b": "Questions about your data? Call 2810 250 120 or visit us at Efodou 10, Heraklion 713 03."
  },
  "meta": {
- "title": "Privacy Policy | Kiaoulias Tyres",
- "description": "Privacy policy for Kiaoulias Tyres in Heraklion. We only collect what you provide in the booking form and never sell your data."
+  "title": "Privacy Policy | Kiaoulias Tires",
+  "description": "Privacy policy for Kiaoulias Tires in Heraklion. We only collect what you provide in the booking form and never sell your data."
  }
 }

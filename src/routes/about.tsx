@@ -9,19 +9,19 @@ export const Route = createFileRoute("/about")({
     const t = (key: string) => i18n.t(key, { ns: "about" });
     return {
       meta: [
-        { title: t("meta.title") || "About Us | Kiaoulias Tyres" },
+        { title: t("meta.title") || "About Us | Kiaoulias Tires" },
         {
           name: "description",
           content:
             t("meta.description") ||
-            "Family-run tyre and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
+            "Family-run tire and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
         },
-        { property: "og:title", content: t("meta.title") || "About Us | Kiaoulias Tyres" },
+        { property: "og:title", content: t("meta.title") || "About Us | Kiaoulias Tires" },
         {
           property: "og:description",
           content:
             t("meta.description") ||
-            "Family-run tyre and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
+            "Family-run tire and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/about") },

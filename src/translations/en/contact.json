@@ -1,19 +1,19 @@
 {
  "eyebrow": "Find us",
  "h": "Contact",
- "intro": "Book a slot online or drop in. Walk-ins are welcome, booking means your tyres are ready when you arrive.",
+ "intro": "Book a slot online or drop in. Walk-ins are welcome, booking means your tires are ready when you arrive.",
  "details": {
- "phone": "Phone",
- "address": "Address",
- "hours": "Opening hours",
- "hoursValue": "Mon–Fri 08:00–17:00 · Sat 08:00–15:00"
+  "phone": "Phone",
+  "address": "Address",
+  "hours": "Opening hours",
+  "hoursValue": "Mon–Fri 08:00–17:00 · Sat 08:00–15:00"
  },
  "map": {
- "placeholder": "Map coming soon, find us at {{address}}",
- "label": "Map to our tyre shop at {{address}}"
+  "placeholder": "Map coming soon, find us at {{address}}",
+  "label": "Map to our tire shop at {{address}}"
  },
  "meta": {
- "title": "Contact | Kiaoulias Tyres",
- "description": "Book a tyre or alignment appointment at Kiaoulias Tyres in central Heraklion. Call us or use the online booking form. Open Mon–Fri 08–17, Sat 08–15."
+  "title": "Contact | Kiaoulias Tires",
+  "description": "Book a tire or alignment appointment at Kiaoulias Tires in central Heraklion. Call us or use the online booking form. Open Mon–Fri 08–17, Sat 08–15."
  }
 }

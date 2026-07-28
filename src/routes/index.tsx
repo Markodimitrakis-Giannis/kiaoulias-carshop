@@ -14,9 +14,9 @@ import { WhyUs } from "@/components/WhyUs";
 import { COMPANY_NAME, FOUNDING_YEAR, GOOGLE_RATING, PHONE_NUMBER, ADDRESS } from "@/constants/content";
 import { absoluteAssetUrl, siteUrl } from "@/lib/asset";
 
-const HOME_TITLE = `${COMPANY_NAME} — Tyres & Alignment Heraklion`;
+const HOME_TITLE = `${COMPANY_NAME} — Tires & Alignment Heraklion`;
 const HOME_DESCRIPTION =
-  "Family-run tyre shop in central Heraklion. Tyres, wheel alignment and balancing — same-day fitting, honest pricing.";
+  "Family-run tire shop in central Heraklion. Tires, wheel alignment and balancing — same-day fitting, honest pricing.";
 
 // JSON-LD: AggregateRating block extending the LocalBusiness schema in Footer
 const AGGREGATE_RATING_JSONLD = {
@@ -51,12 +51,12 @@ const FAQ_JSONLD = {
       name: "Do I need an appointment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Walk-ins are welcome, but booking a slot means we have your tyres ready and you're straight in.",
+        text: "Walk-ins are welcome, but booking a slot means we have your tires ready and you're straight in.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does a tyre fit take?",
+      name: "How long does a tire fit take?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "A set of four with balancing is usually about 30–45 minutes. Alignment adds around 30.",
@@ -64,7 +64,7 @@ const FAQ_JSONLD = {
     },
     {
       "@type": "Question",
-      name: "Where is Kiaoulias Tyres located?",
+      name: "Where is Kiaoulias Tires located?",
       acceptedAnswer: {
         "@type": "Answer",
         text: `${ADDRESS}. Open Mon–Fri 08:00–17:00 and Sat 08:00–15:00.`,

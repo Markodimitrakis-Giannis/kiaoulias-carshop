@@ -163,7 +163,7 @@ export const Footer = ({ className }: FooterProps) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AutoRepair",
-            name: "Kiaoulias Tyres",
+            name: "Kiaoulias Tires",
             foundingDate: String(FOUNDING_YEAR),
             address: {
               "@type": "PostalAddress",

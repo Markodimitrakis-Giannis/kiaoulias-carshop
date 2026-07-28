@@ -9,19 +9,19 @@ export const Route = createFileRoute("/privacy")({
     const t = (key: string) => i18n.t(key, { ns: "privacy" });
     return {
       meta: [
-        { title: t("meta.title") || "Privacy Policy | Kiaoulias Tyres" },
+        { title: t("meta.title") || "Privacy Policy | Kiaoulias Tires" },
         {
           name: "description",
           content:
             t("meta.description") ||
-            "Privacy policy for Kiaoulias Tyres. We only collect what you give us in the booking form and never sell your data.",
+            "Privacy policy for Kiaoulias Tires. We only collect what you give us in the booking form and never sell your data.",
         },
-        { property: "og:title", content: t("meta.title") || "Privacy Policy | Kiaoulias Tyres" },
+        { property: "og:title", content: t("meta.title") || "Privacy Policy | Kiaoulias Tires" },
         {
           property: "og:description",
           content:
             t("meta.description") ||
-            "Privacy policy for Kiaoulias Tyres. We only collect what you give us in the booking form and never sell your data.",
+            "Privacy policy for Kiaoulias Tires. We only collect what you give us in the booking form and never sell your data.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/privacy") },

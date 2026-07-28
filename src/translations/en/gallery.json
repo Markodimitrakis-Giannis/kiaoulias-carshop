@@ -4,15 +4,15 @@
  "images": {
   "hero": "Mechanic using an impact wrench with orange protective gloves",
   "torque": "Impact wrench resting on a polished alloy wheel",
-  "tyreFitting": "Fitting a new tyre on the tyre changer",
+  "tyreFitting": "Fitting a new tire on the tire changer",
   "balancing": "Wheel balancer display showing Kiaoulias branding",
   "alignment": "Ford Puma on the alignment rig, front-on view",
   "alignPortrait": "Vehicle on the four-wheel alignment rig",
   "alignLow": "Low-angle view of Ford Puma on the alignment rig",
-  "workshop": "Interior of the Kiaoulias Tyres workshop"
+  "workshop": "Interior of the Kiaoulias Tires workshop"
  },
  "services": {
-  "tyres": "Tyre changer machine fitting a new tyre",
+  "tyres": "Tire changer machine fitting a new tire",
   "alignment": "Car on the computerised four-wheel alignment rig",
   "balancing": "Wheel balancer showing calibration data",
   "tpms": "Impact wrench on alloy wheel during TPMS service",
@@ -20,11 +20,11 @@
   "repair": "Impact wrench on alloy wheel during puncture repair"
  },
  "about": {
-  "workshop": "The Kiaoulias Tyres workshop floor",
+  "workshop": "The Kiaoulias Tires workshop floor",
   "balancing": "Balancing machine at work"
  },
  "contact": {
-  "workshop": "The Kiaoulias Tyres workshop, find us here"
+  "workshop": "The Kiaoulias Tires workshop, find us here"
  },
  "prev": "Previous photos",
  "next": "More photos",
