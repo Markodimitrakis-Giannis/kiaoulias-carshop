@@ -15,7 +15,7 @@ import {
   PHONE_TEL,
 } from "@/constants/content";
 import { TranslationNamespace } from "@/i18n/types";
-import { assetPath } from "@/lib/asset";
+import { assetPath, siteUrl } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 import type { FooterProps } from "./Footer.types";
@@ -174,7 +174,7 @@ export const Footer = ({ className }: FooterProps) => {
             telephone: PHONE_NUMBER,
             email: CONTACT_EMAIL,
             openingHours: "Mo-Fr 08:00-17:00, Sa 08:00-15:00",
-            url: "https://www.kiaoulias.gr",
+            url: siteUrl(),
             sameAs: [INSTAGRAM_URL],
           }),
         }}

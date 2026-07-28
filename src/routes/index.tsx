@@ -31,7 +31,7 @@ const AGGREGATE_RATING_JSONLD = {
     addressCountry: "GR",
   },
   telephone: PHONE_NUMBER,
-  url: "https://www.kiaoulias.gr",
+  url: siteUrl(),
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: GOOGLE_RATING,

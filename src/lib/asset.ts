@@ -1,4 +1,4 @@
-const PUBLIC_ORIGIN = "https://markodimitrakis-giannis.github.io";
+const PUBLIC_ORIGIN = "https://www.kiaoulias-tires.gr";
 
 const basePath = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
