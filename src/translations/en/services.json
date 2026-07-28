@@ -2,69 +2,69 @@
  "eyebrow": "What we do",
  "h": "Services",
  "filter": {
- "all": "All",
- "tyres": "Tyres",
- "align": "Alignment",
- "more": "More"
+  "all": "All",
+  "tyres": "Tyres",
+  "align": "Alignment",
+  "more": "More"
  },
  "tyres": {
- "t": "Tyre sales & fitting",
- "b": "Summer, winter, all-season and run-flat. Major brands and budget options, fitted on site.",
- "p": "from €45 / tyre"
+  "t": "Tyre sales & fitting",
+  "b": "Summer, winter, all-season and run-flat. Major brands and budget options, fitted on site.",
+  "p": "from €45 / tyre"
  },
  "align": {
- "t": "Wheel alignment",
- "b": "Computerised 4-wheel alignment. Stops uneven wear, pulls and steering drift.",
- "p": "from €40"
+  "t": "Wheel alignment",
+  "b": "Computerised 4-wheel alignment. Stops uneven wear, pulls and steering drift.",
+  "p": "from €40"
  },
  "bal": {
- "t": "Wheel balancing",
- "b": "Smooth out vibration at speed. Precision balancing on every wheel fitted.",
- "p": "from €8 / wheel"
+  "t": "Wheel balancing",
+  "b": "Smooth out vibration at speed. Precision balancing on every wheel fitted.",
+  "p": "from €8 / wheel"
  },
  "tpms": {
- "t": "TPMS & pressure",
- "b": "Sensor checks, resets and seasonal pressure top-ups. Nitrogen on request.",
- "p": "from €15"
+  "t": "TPMS & pressure",
+  "b": "Sensor checks, resets and seasonal pressure top-ups. Nitrogen on request.",
+  "p": "from €15"
  },
- "brakes": {
- "t": "Brakes",
- "b": "Pads, discs and inspections while the wheels are off, quick and thorough.",
- "p": "on inspection"
+ "rims": {
+  "t": "Rim sales & repair",
+  "b": "Straightening and repair of alloy and steel rims, plus new rims in stock.",
+  "p": "on inspection"
  },
  "repair": {
- "t": "Puncture repair",
- "b": "Safe, regulation repairs where the tyre allows, far cheaper than a replacement.",
- "p": "from €12"
+  "t": "Puncture repair",
+  "b": "Safe, regulation repairs where the tyre allows, far cheaper than a replacement.",
+  "p": "from €10"
  },
  "band": {
- "h": "Brands we stock",
- "1": "years on the same street",
- "2": "average Google rating",
- "3": "typical fit & balance"
+  "h": "Brands we stock",
+  "1": "years on the same street",
+  "2": "average Google rating",
+  "3": "typical fit & balance"
  },
  "why": {
- "eyebrow": "The difference",
- "h": "Why drivers come back",
- "1": {
- "t": "Straight talk.",
- "b": "We show you the worn tread and explain it. You decide."
- },
- "2": {
- "t": "Proper kit.",
- "b": "Computerised alignment and Hunter balancing, not guesswork."
- },
- "3": {
- "t": "Fair on price.",
- "b": "Budget to premium, we fit your car and your wallet."
- },
- "4": {
- "t": "Local & accountable.",
- "b": "Same family, same street, for two decades."
- }
+  "eyebrow": "The difference",
+  "h": "Why drivers come back",
+  "1": {
+   "t": "Straight talk.",
+   "b": "We show you the worn tread and explain it. You decide."
+  },
+  "2": {
+   "t": "Proper kit.",
+   "b": "Computerised alignment and precision balancing, not guesswork."
+  },
+  "3": {
+   "t": "Fair on price.",
+   "b": "Budget to premium, we fit your car and your wallet."
+  },
+  "4": {
+   "t": "Local & accountable.",
+   "b": "Same family, same street, since 1970."
+  }
  },
  "meta": {
- "title": "Services | Kiaoulias Tyres",
- "description": "Tyre sales & fitting, wheel alignment, balancing, TPMS and puncture repair in central Heraklion. Same-day service, honest pricing."
+  "title": "Services | Kiaoulias Tyres",
+  "description": "Tyre sales & fitting, wheel alignment, balancing, TPMS, rim sales & repair and puncture repair in central Heraklion. Same-day service, honest pricing."
  }
 }

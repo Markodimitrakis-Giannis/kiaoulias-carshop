@@ -8,7 +8,8 @@ export const INSTAGRAM_HANDLE = "kiaoulias.tiresher";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}`;
 export const ADDRESS = "Efodou 10, Heraklion 713 03";
 export const CITY = "Heraklion";
-export const FOUNDING_YEAR = 2005;
+export const FOUNDING_YEAR = 1970;
+export const CONTACT_EMAIL = "kiaouliaselastika@gmail.com";
 
 export const BRANDS = [
   "Michelin",

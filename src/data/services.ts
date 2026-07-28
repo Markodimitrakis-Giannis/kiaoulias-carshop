@@ -33,10 +33,10 @@ export const SERVICES_DATA: Service[] = [
     image: "torque",
   },
   {
-    id: "brakes",
+    id: "rims",
     category: ServiceCategory.OTHER,
     icon: Disc,
-    translationKey: "brakes",
+    translationKey: "rims",
     image: "align-low",
   },
   {

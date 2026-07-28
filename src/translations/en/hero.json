@@ -1,31 +1,31 @@
 {
  "eyebrow": "Tyres · Alignment · Balancing",
  "title": "The right tyres, fitted right.",
- "sub": "Family-run shop in Heraklion. Honest pricing, expert fitting, same day.",
+ "sub": "Family-run shop in Heraklion. Tyre repairs for cars and motorcycles — honest, same day.",
  "cta1": "Get a tyre quote",
  "cta2": "Call us",
  "finder": {
- "label": "Tyre size finder",
- "width": "Width",
- "profile": "Profile",
- "rim": "Rim",
- "submit": "See prices",
- "hint": "It's on your tyre wall — e.g. 205/55 R16",
- "readoutLabel": "Your size"
+  "label": "Tyre size finder",
+  "width": "Width",
+  "profile": "Profile",
+  "rim": "Rim",
+  "submit": "See prices",
+  "hint": "It's on your tyre wall — e.g. 205/55 R16",
+  "readoutLabel": "Your size"
  },
  "trust": {
- "h": "Why customers choose us",
- "1": {
- "t": "Clear pricing",
- "b": "The price we quote is the price you pay. No surprises at the counter."
- },
- "2": {
- "t": "Same-day fitting",
- "b": "Most tyre and alignment jobs done while you wait. Book a slot, skip the wait."
- },
- "3": {
- "t": "Workmanship guarantee",
- "b": "Every fit and alignment backed in writing. Something off? We make it right."
- }
+  "h": "Why customers choose us",
+  "1": {
+   "t": "Clear pricing",
+   "b": "The price we quote is the price you pay. No surprises at the counter."
+  },
+  "2": {
+   "t": "Same-day fitting",
+   "b": "Most tyre and alignment jobs done while you wait. Book a slot, skip the wait."
+  },
+  "3": {
+   "t": "Workmanship guarantee",
+   "b": "Every fit and alignment backed in writing. Something off? We make it right."
+  }
  }
 }

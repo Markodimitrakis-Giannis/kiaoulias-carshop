@@ -6,6 +6,7 @@ import { AppRoute } from "@/constants/routes";
 import {
   ADDRESS,
   COMPANY_NAME,
+  CONTACT_EMAIL,
   FOUNDING_YEAR,
   INSTAGRAM_URL,
   MOBILE_NUMBER,
@@ -93,6 +94,17 @@ export const Footer = ({ className }: FooterProps) => {
                   {t("phone.mobile")}: {MOBILE_NUMBER}
                 </a>
               </li>
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className={cn(
+                    "transition-colors duration-200 hover:text-body",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm",
+                  )}
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
               <li>{ADDRESS}</li>
               <li>{t("foot.hours")}</li>
               <li className="pt-1">
@@ -160,6 +172,7 @@ export const Footer = ({ className }: FooterProps) => {
               addressCountry: "GR",
             },
             telephone: PHONE_NUMBER,
+            email: CONTACT_EMAIL,
             openingHours: "Mo-Fr 08:00-17:00, Sa 08:00-15:00",
             url: "https://www.kiaoulias.gr",
             sameAs: [INSTAGRAM_URL],

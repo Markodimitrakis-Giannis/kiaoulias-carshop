@@ -1,44 +1,44 @@
 {
  "skip": "Skip to content",
  "nav": {
- "services": "Services",
- "why": "Why us",
- "faq": "FAQ",
- "contact": "Contact",
- "about": "About",
- "label": "Main navigation",
- "labelMobile": "Mobile navigation",
- "labelFooter": "Footer navigation",
- "homeLabel": "{{company}}, Home"
+  "services": "Services",
+  "why": "Why us",
+  "faq": "FAQ",
+  "contact": "Contact",
+  "about": "About",
+  "label": "Main navigation",
+  "labelMobile": "Mobile navigation",
+  "labelFooter": "Footer navigation",
+  "homeLabel": "{{company}}, Home"
  },
  "cta": {
- "book": "Book now"
+  "book": "Book now"
  },
  "foot": {
- "tag": "Tyres, alignment & balancing in central Heraklion since 2005.",
- "privacy": "Privacy policy",
- "hours": "Mon–Fri 08:00–17:00 · Sat 08:00–15:00",
- "copyright": "© {{year}} Kiaoulias Tyres. All rights reserved."
+  "tag": "Tyres, alignment & balancing in central Heraklion since 1970.",
+  "privacy": "Privacy policy",
+  "hours": "Mon–Fri 08:00–17:00 · Sat 08:00–15:00",
+  "copyright": "© {{year}} Kiaoulias Tyres. All rights reserved."
  },
  "theme": {
- "toggleLight": "Switch to light mode",
- "toggleDark": "Switch to dark mode"
+  "toggleLight": "Switch to light mode",
+  "toggleDark": "Switch to dark mode"
  },
  "lang": {
- "toggle": "Switch language"
+  "toggle": "Switch language"
  },
  "menu": {
- "open": "Open menu",
- "close": "Close menu"
+  "open": "Open menu",
+  "close": "Close menu"
  },
  "social": {
- "instagram": "Follow us on Instagram",
- "map": "Find us on the map"
+  "instagram": "Follow us on Instagram",
+  "map": "Find us on the map"
  },
  "phone": {
- "label": "Call us",
- "labelMobile": "Call our mobile",
- "landline": "Landline",
- "mobile": "Mobile"
+  "label": "Call us",
+  "labelMobile": "Call our mobile",
+  "landline": "Landline",
+  "mobile": "Mobile"
  }
 }

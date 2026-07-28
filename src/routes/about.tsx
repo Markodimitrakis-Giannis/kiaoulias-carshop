@@ -14,14 +14,14 @@ export const Route = createFileRoute("/about")({
           name: "description",
           content:
             t("meta.description") ||
-            "Family-run tyre and alignment shop in central Heraklion since 2005. Honest pricing, precision alignment, same-day fitting.",
+            "Family-run tyre and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
         },
         { property: "og:title", content: t("meta.title") || "About Us | Kiaoulias Tyres" },
         {
           property: "og:description",
           content:
             t("meta.description") ||
-            "Family-run tyre and alignment shop in central Heraklion since 2005. Honest pricing, precision alignment, same-day fitting.",
+            "Family-run tyre and alignment shop in central Heraklion since 1970. Honest pricing, precision alignment, same-day fitting.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/about") },
