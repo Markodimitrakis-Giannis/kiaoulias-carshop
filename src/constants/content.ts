@@ -4,7 +4,7 @@ export const PHONE_TEL = "+302810250120";
 export const MOBILE_NUMBER = "+30 697 228 5414";
 export const MOBILE_TEL = "+306972285414";
 
-export const INSTAGRAM_HANDLE = "kiaoulias.tiresher";
+export const INSTAGRAM_HANDLE = "kiaoulias.tires.her";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}`;
 export const ADDRESS = "Efodou 10, Heraklion 713 03";
 export const CITY = "Heraklion";
