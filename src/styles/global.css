@@ -169,6 +169,13 @@ html[lang="el"] .font-mono {
   hyphens: auto;
 }
 
+/* Headings have room to wrap whole words — mid-word hyphen breaks (ΣΩ-ΣΤΗ)
+   read badly at display sizes, so undo the control-oriented rule above. */
+html[lang="el"] :is(h1, h2, h3).font-display {
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
 html[lang="el"] .tracking-wider {
   letter-spacing: 0.04em;
 }

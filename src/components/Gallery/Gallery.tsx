@@ -39,8 +39,8 @@ export const Gallery = ({ className }: GalleryProps) => {
       variant={SectionBackground.INK}
       className={className}
     >
-      {/* Header row: copy left, slider controls right (controls hidden on touch — swipe instead) */}
-      <div className="flex items-end justify-between gap-4">
+      {/* Header: stacked on mobile so the heading gets full width in both locales, row from sm up */}
+      <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-2">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <Heading level={2} id="gallery-heading">
