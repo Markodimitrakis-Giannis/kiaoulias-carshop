@@ -9,6 +9,11 @@ export const BREAKPOINTS = {
 
 export const MAX_CONTENT_WIDTH = "max-w-7xl";
 
+/** Netlify Forms registration name — must match the hidden form in index.html. */
+export const BOOKING_FORM_NAME = "booking";
+/** Honeypot field Netlify discards submissions for when filled (netlify-honeypot). */
+export const BOOKING_HONEYPOT_FIELD = "bot-field";
+
 /** Hero tyre-size finder → booking form handoff (sessionStorage key + window event). */
 export const TYRE_SIZE_STORAGE_KEY = "kiaoulias:tyreSize";
 export const TYRE_SIZE_EVENT = "kiaoulias:tyre-size";

@@ -1,15 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "@tanstack/react-form";
 import { useTranslation } from "react-i18next";
 
 import { ServiceCategory } from "@/constants/services";
-import { TYRE_SIZE_EVENT, TYRE_SIZE_STORAGE_KEY } from "@/constants/ui";
+import {
+  BOOKING_FORM_NAME,
+  BOOKING_HONEYPOT_FIELD,
+  TYRE_SIZE_EVENT,
+  TYRE_SIZE_STORAGE_KEY,
+} from "@/constants/ui";
 import { TranslationNamespace } from "@/i18n/types";
 import { LoadingState } from "@/types/common";
 
 import type { BookingFormValues } from "./BookingForm.types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** Netlify Forms expects url-encoded bodies posted to the page path. */
+const submitToNetlify = async (values: BookingFormValues, botField: string): Promise<boolean> => {
+  // Vite's dev server has no Netlify endpoint — pretend success locally.
+  if (import.meta.env.DEV) {
+    await new Promise<void>((resolve) => setTimeout(resolve, 800));
+    return true;
+  }
+  const body = new URLSearchParams({
+    "form-name": BOOKING_FORM_NAME,
+    [BOOKING_HONEYPOT_FIELD]: botField,
+    name: values.name,
+    phone: values.phone,
+    email: values.email,
+    vehicle: values.vehicle,
+    tyreSize: values.tyreSize,
+    service: values.service,
+    consent: String(values.consent),
+  }).toString();
+  try {
+    const res = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+};
 
 const readStoredSize = (): string => {
   try {
@@ -22,6 +57,8 @@ const readStoredSize = (): string => {
 export const useBookingForm = () => {
   const { t: tValidation } = useTranslation(TranslationNamespace.VALIDATION);
   const [submitState, setSubmitState] = useState<LoadingState>(LoadingState.IDLE);
+  const [errorKind, setErrorKind] = useState<"contact" | "submit" | null>(null);
+  const botFieldRef = useRef<HTMLInputElement>(null);
 
   const initialSize = readStoredSize();
 
@@ -38,21 +75,26 @@ export const useBookingForm = () => {
       consent: false,
     },
     onSubmit: async ({ value }) => {
-      setSubmitState(LoadingState.LOADING);
-
-      // Simulate async submission — no backend
-      await new Promise<void>((resolve) => setTimeout(resolve, 800));
-
       // Validate cross-field: at least phone or email required
       const hasPhone = value.phone.trim().length > 0;
       const hasEmail = value.email.trim().length > 0;
 
       if (!hasPhone && !hasEmail) {
+        setErrorKind("contact");
         setSubmitState(LoadingState.ERROR);
         return;
       }
 
-      setSubmitState(LoadingState.SUCCESS);
+      setErrorKind(null);
+      setSubmitState(LoadingState.LOADING);
+
+      const sent = await submitToNetlify(value, botFieldRef.current?.value ?? "");
+      if (sent) {
+        setSubmitState(LoadingState.SUCCESS);
+      } else {
+        setErrorKind("submit");
+        setSubmitState(LoadingState.ERROR);
+      }
     },
   });
 
@@ -93,18 +135,22 @@ export const useBookingForm = () => {
 
   const handleReset = () => {
     form.reset();
+    setErrorKind(null);
     setSubmitState(LoadingState.IDLE);
   };
 
   // Derive whether the contact cross-field error should show (post-submit, no phone+email)
-  const isContactError =
-    submitState === LoadingState.ERROR;
+  const isContactError = submitState === LoadingState.ERROR && errorKind === "contact";
+  const isSubmitError = submitState === LoadingState.ERROR && errorKind === "submit";
 
   return {
     form,
     submitState,
     isContactError,
+    isSubmitError,
     contactErrorMsg: tValidation("err.contact"),
+    submitErrorMsg: tValidation("err.submit"),
+    botFieldRef,
     validateName,
     validatePhone,
     validateEmail,

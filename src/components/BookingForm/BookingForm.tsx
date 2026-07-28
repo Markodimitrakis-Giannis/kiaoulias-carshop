@@ -11,6 +11,7 @@ import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.ty
 import { Select, SelectTone } from "@/components/Select";
 import { AppRoute } from "@/constants/routes";
 import { PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
+import { BOOKING_HONEYPOT_FIELD } from "@/constants/ui";
 import { TranslationNamespace } from "@/i18n/types";
 import { LoadingState } from "@/types/common";
 
@@ -24,7 +25,10 @@ export const BookingForm = ({ className }: BookingFormProps) => {
     form,
     submitState,
     isContactError,
+    isSubmitError,
     contactErrorMsg,
+    submitErrorMsg,
+    botFieldRef,
     validateName,
     validateEmail,
     validateConsent,
@@ -109,6 +113,17 @@ export const BookingForm = ({ className }: BookingFormProps) => {
               noValidate
               className="flex flex-col gap-5"
             >
+              {/* Netlify honeypot — hidden from users and AT; bots that fill it get discarded */}
+              <div aria-hidden="true" className="hidden">
+                <input
+                  ref={botFieldRef}
+                  type="text"
+                  name={BOOKING_HONEYPOT_FIELD}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               {/* Name */}
               <form.Field
                 name="name"
@@ -329,6 +344,13 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                   </Button>
                 )}
               </form.Subscribe>
+
+              {/* Network/submission failure */}
+              {isSubmitError && (
+                <p role="alert" className="text-sm text-danger-on-dark">
+                  {submitErrorMsg}
+                </p>
+              )}
 
               {/* Contact cross-field status region */}
               <div aria-live="polite" className="sr-only">

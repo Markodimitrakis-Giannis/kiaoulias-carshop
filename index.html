@@ -15,6 +15,19 @@
     />
   </head>
   <body>
+    <!-- Netlify Forms registration: the build bot reads this static copy to
+         provision the "booking" form; the real form submits via fetch. Field
+         names must stay in sync with BookingFormValues. -->
+    <form name="booking" netlify-honeypot="bot-field" data-netlify="true" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="vehicle" />
+      <input type="text" name="tyreSize" />
+      <input type="text" name="service" />
+      <input type="checkbox" name="consent" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
