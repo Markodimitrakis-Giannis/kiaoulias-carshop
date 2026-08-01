@@ -44,7 +44,8 @@ const submitToNetlify = async (
     phone: orDash(values.phone),
     email: orDash(values.email),
     vehicle: orDash(values.vehicle),
-    tyreSize: orDash(values.tyreSize),
+    // Posted as tireSize — Netlify derives the email label ("Tire Size") from this key
+    tireSize: orDash(values.tyreSize),
     service: serviceLabel,
   }).toString();
   try {
