@@ -11,7 +11,7 @@ import { SectionBackground } from "@/components/SectionWrapper/SectionWrapper.ty
 import { Select, SelectTone } from "@/components/Select";
 import { AppRoute } from "@/constants/routes";
 import { PHONE_NUMBER, PHONE_TEL } from "@/constants/content";
-import { BOOKING_HONEYPOT_FIELD } from "@/constants/ui";
+import { BOOKING_FIELD_MAX, BOOKING_HONEYPOT_FIELD } from "@/constants/ui";
 import { TranslationNamespace } from "@/i18n/types";
 import { LoadingState } from "@/types/common";
 
@@ -139,6 +139,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                     <input
                       id="booking-name"
                       type="text"
+                      maxLength={BOOKING_FIELD_MAX.NAME}
                       autoComplete="name"
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -166,6 +167,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                     <input
                       id="booking-phone"
                       type="tel"
+                      maxLength={BOOKING_FIELD_MAX.PHONE}
                       autoComplete="tel"
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -195,6 +197,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                     <input
                       id="booking-email"
                       type="email"
+                      maxLength={BOOKING_FIELD_MAX.EMAIL}
                       autoComplete="email"
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -222,6 +225,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                     <input
                       id="booking-vehicle"
                       type="text"
+                      maxLength={BOOKING_FIELD_MAX.VEHICLE}
                       autoComplete="off"
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -244,6 +248,7 @@ export const BookingForm = ({ className }: BookingFormProps) => {
                       id="booking-tyre-size"
                       type="text"
                       inputMode="text"
+                      maxLength={BOOKING_FIELD_MAX.TYRE_SIZE}
                       autoComplete="off"
                       placeholder="205/55 R16"
                       value={field.state.value}

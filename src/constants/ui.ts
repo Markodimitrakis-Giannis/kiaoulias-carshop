@@ -11,6 +11,14 @@ export const MAX_CONTENT_WIDTH = "max-w-7xl";
 
 /** Netlify Forms registration name — must match the hidden form in index.html. */
 export const BOOKING_FORM_NAME = "booking";
+/** Upper bounds for booking inputs — keeps direct-POST garbage and typos bounded. */
+export const BOOKING_FIELD_MAX = {
+  NAME: 80,
+  PHONE: 20,
+  EMAIL: 100,
+  VEHICLE: 60,
+  TYRE_SIZE: 20,
+} as const;
 /** Honeypot field Netlify discards submissions for when filled (netlify-honeypot). */
 export const BOOKING_HONEYPOT_FIELD = "bot-field";
 
