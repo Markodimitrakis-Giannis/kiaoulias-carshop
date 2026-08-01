@@ -16,8 +16,22 @@ import type { BookingFormValues } from "./BookingForm.types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const SERVICE_OPTIONS = [
+  { value: ServiceCategory.TYRES, labelKey: "form.opt1" },
+  { value: ServiceCategory.ALIGNMENT, labelKey: "form.opt2" },
+  { value: ServiceCategory.BALANCING, labelKey: "form.opt3" },
+  { value: ServiceCategory.OTHER, labelKey: "form.opt4" },
+] as const;
+
+/** Empty optional fields arrive as "-" so the notification email stays scannable. */
+const orDash = (value: string): string => value.trim() || "-";
+
 /** Netlify Forms expects url-encoded bodies posted to the page path. */
-const submitToNetlify = async (values: BookingFormValues, botField: string): Promise<boolean> => {
+const submitToNetlify = async (
+  values: BookingFormValues,
+  botField: string,
+  serviceLabel: string,
+): Promise<boolean> => {
   // Vite's dev server has no Netlify endpoint — pretend success locally.
   if (import.meta.env.DEV) {
     await new Promise<void>((resolve) => setTimeout(resolve, 800));
@@ -27,12 +41,12 @@ const submitToNetlify = async (values: BookingFormValues, botField: string): Pro
     "form-name": BOOKING_FORM_NAME,
     [BOOKING_HONEYPOT_FIELD]: botField,
     name: values.name,
-    phone: values.phone,
-    email: values.email,
-    vehicle: values.vehicle,
-    tyreSize: values.tyreSize,
-    service: values.service,
-    consent: String(values.consent),
+    phone: orDash(values.phone),
+    email: orDash(values.email),
+    vehicle: orDash(values.vehicle),
+    tyreSize: orDash(values.tyreSize),
+    service: serviceLabel,
+    consent: values.consent ? "yes" : "no",
   }).toString();
   try {
     const res = await fetch("/", {
@@ -56,6 +70,7 @@ const readStoredSize = (): string => {
 
 export const useBookingForm = () => {
   const { t: tValidation } = useTranslation(TranslationNamespace.VALIDATION);
+  const { t: tBooking } = useTranslation(TranslationNamespace.BOOKING_FORM);
   const [submitState, setSubmitState] = useState<LoadingState>(LoadingState.IDLE);
   const [errorKind, setErrorKind] = useState<"contact" | "submit" | null>(null);
   const botFieldRef = useRef<HTMLInputElement>(null);
@@ -88,7 +103,9 @@ export const useBookingForm = () => {
       setErrorKind(null);
       setSubmitState(LoadingState.LOADING);
 
-      const sent = await submitToNetlify(value, botFieldRef.current?.value ?? "");
+      const serviceOption = SERVICE_OPTIONS.find((option) => option.value === value.service);
+      const serviceLabel = serviceOption ? tBooking(serviceOption.labelKey) : "-";
+      const sent = await submitToNetlify(value, botFieldRef.current?.value ?? "", serviceLabel);
       if (sent) {
         setSubmitState(LoadingState.SUCCESS);
       } else {
@@ -156,11 +173,6 @@ export const useBookingForm = () => {
     validateEmail,
     validateConsent,
     handleReset,
-    SERVICE_OPTIONS: [
-      { value: ServiceCategory.TYRES, labelKey: "form.opt1" },
-      { value: ServiceCategory.ALIGNMENT, labelKey: "form.opt2" },
-      { value: ServiceCategory.BALANCING, labelKey: "form.opt3" },
-      { value: ServiceCategory.OTHER, labelKey: "form.opt4" },
-    ] as const,
+    SERVICE_OPTIONS,
   };
 };

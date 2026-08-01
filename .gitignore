@@ -27,3 +27,6 @@ Thumbs.db
 
 # MCP config (contains secrets)
 .mcp.json
+
+# Local Netlify folder
+.netlify
