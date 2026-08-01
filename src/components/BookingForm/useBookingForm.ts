@@ -46,7 +46,6 @@ const submitToNetlify = async (
     vehicle: orDash(values.vehicle),
     tyreSize: orDash(values.tyreSize),
     service: serviceLabel,
-    consent: values.consent ? "yes" : "no",
   }).toString();
   try {
     const res = await fetch("/", {
