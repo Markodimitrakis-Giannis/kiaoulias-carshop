@@ -24,7 +24,10 @@ export const Route = createFileRoute("/services")({
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/services") },
-        { property: "og:image", content: absoluteAssetUrl("/photos/tyre-fitting-960.webp") },
+        { property: "og:image", content: absoluteAssetUrl("/og-image.jpg") },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: siteUrl("/services") }],
     };

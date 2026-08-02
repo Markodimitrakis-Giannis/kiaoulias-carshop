@@ -25,7 +25,10 @@ export const Route = createFileRoute("/contact")({
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: siteUrl("/contact") },
-        { property: "og:image", content: absoluteAssetUrl("/photos/workshop-1280.webp") },
+        { property: "og:image", content: absoluteAssetUrl("/og-image.jpg") },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: siteUrl("/contact") }],
     };
